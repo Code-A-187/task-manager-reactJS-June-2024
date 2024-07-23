@@ -10,10 +10,10 @@ Used Dependencies in React.
 
 STRARTING PROJECT
 
-1. starting client
+1. Starting client
 	-
 	
-2. starting server
+2. Starting server
    	-
 
  
