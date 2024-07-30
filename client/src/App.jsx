@@ -1,9 +1,16 @@
+import Login from "./user-login/Login"
+import Register from "./user-register/Register"
+
 function App() {
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Task Manager System with React
-    </h1>
+    <>
+      
+      <Login />
+      <Register/>
+    
+    
+    </>
   
   )
 }
