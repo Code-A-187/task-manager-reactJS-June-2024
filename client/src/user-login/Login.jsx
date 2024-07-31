@@ -1,13 +1,13 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
 
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
       <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
-        <a href="#">
+        <Link to="#">
           <img src="" alt="Task Manager" className='w-40 md:mb-4 mb-12' />
-        </a>
+        </Link>
 
         <div className="grid md:grid-cols-2 items-center gap-8">
           <div className="max-md:order-1 lg:min-w-[450px]">
@@ -48,7 +48,7 @@ export default function Login() {
               <button type="button" className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                 Sign in
               </button>
-              <p className="text-gray-800 text-sm text-center mt-6">Don't have an account?<a href="#" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+              <p className="text-gray-800 text-sm text-center mt-6">Don't have an account?<Link to="#" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
             </div>
           </form>
         </div>
