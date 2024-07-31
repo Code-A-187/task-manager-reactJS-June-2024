@@ -5,9 +5,9 @@ export default function Header() {
     <header className='font-[sans-serif] min-h-[60px] tracking-wide relative z-50'>
         <section className="bg-[#004d66] px-4 py-0.5 sm:px-10 flex items-center max-sm:flex-col">
             <div className="sm:ml-auto text-white">
-            <Link to="#" className="text-white text-sm mr-1 text-gray-300 hover:text-white">Sign In</Link>
+            <Link to="#" className="text-sm mr-1 text-gray-300 hover:text-white">Login</Link>
             /
-            <Link to="#" className="text-white text-sm ml-1 hover:text-white text-gray-300 hover:text-white">Sign Up</Link>
+            <Link to="#" className="text-sm ml-1 text-gray-300 hover:text-white">Register</Link>
         </div>
         </section>
 
