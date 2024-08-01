@@ -42,13 +42,13 @@ export default function CreateTaskModal() {
                     </div>
 
                     <div className="relative font-sans w-max mx-auto">
-                        <button
-                            type="button"
-                            id="dropdownToggle"
-                            className="px-5 py-2.5 border border-gray-300 text-gray-800 text-sm outline-none bg-white hover:bg-gray-50 flex items-center"
-                            onClick={handleClick}
-                        >
-                            Dropdown menu
+                        <label className="text-gray-800 text-sm mb-2 block">Task status</label>
+                            <button
+                                type="button"
+                                id="dropdownToggle"
+                                className="px-5 py-2.5 border border-gray-300 text-gray-800 text-sm outline-none bg-white hover:bg-gray-50 flex items-center"
+                                onClick={handleClick}
+                            >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="w-3 fill-gray-500 inline ml-3"
@@ -76,12 +76,6 @@ export default function CreateTaskModal() {
                     <div>
                         <label className="text-gray-800 text-sm mb-2 block">End date</label>
                         <input type="number" placeholder="Date for task be completed"
-                            className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
-                    </div>
-
-                    <div>
-                        <label className="text-gray-800 text-sm mb-2 block">Category</label>
-                        <input type="number" placeholder="Enter product category"
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
                     </div>
 
