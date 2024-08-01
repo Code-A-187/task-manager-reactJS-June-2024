@@ -1,4 +1,4 @@
-import { getAccessToken } from "../utils/authUtils";
+import { getAccessToken } from "../utils/AuthUtils";
 
 async function requester(method, url, data) {
     const options = {

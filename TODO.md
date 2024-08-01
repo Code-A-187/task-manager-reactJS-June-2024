@@ -20,11 +20,11 @@ SoftUni React Course Project
 - [x] Add tasks api
 - [x] Preseed practice server
 ## 4. Page Implementations
-- [ ] Task list
+- [x] Task list
 - [ ] Details
   - [ ] Details link
   - [ ] Details route
-  - [ ] Api function - getOne
+  - [x] Api function - getOne
 - [ ] Home - Latest Games
 ## 5. Comments (Advanced)
 - [ ] Create service for nested resource `comments`
