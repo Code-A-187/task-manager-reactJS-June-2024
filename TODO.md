@@ -17,8 +17,8 @@ SoftUni React Course Project
 ## 3. Create Service Layer
 - [ ] Service layer architecture
 - [x] Abstract requester
-- [ ] Add tasks api
-- [ ] Preseed practice server
+- [x] Add tasks api
+- [x] Preseed practice server
 ## 4. Page Implementations
 - [ ] Task list
 - [ ] Details

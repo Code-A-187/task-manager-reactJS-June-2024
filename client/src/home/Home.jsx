@@ -1,6 +1,7 @@
 import Task from "../task/Task";
 
 export default function Home() {
+  
   return (
     <div className="bg-gray-50 px-4 py-12 font-[sans-serif]">
     <div className="max-w-6xl mx-auto">
