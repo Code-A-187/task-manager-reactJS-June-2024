@@ -1339,7 +1339,36 @@
     	}
     };
     var seedData = {
-    	tasks: {}
+    	tasks: {
+            "e8740253-8c08-4c0b-b5c0-86c61495d658": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "React API for SoftUni",
+                "description": "Create React API, that should have functionalities.",
+                "status": "Important",
+                "dueDate": "08-08-2024",
+                "_createdOn": 1722526058259,
+                "_id": "e8740253-8c08-4c0b-b5c0-86c61495d658"
+            },
+            "4d43485c-2a1d-40cf-bcd6-63c4f1d8bdc0": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Testing functionalities.",
+                "description": "Make Unitests for React API functionalities.",
+                "status": "Important",
+                "dueDate": "13-08-2024",
+                "_createdOn": 1722526281373,
+                "_id": "4d43485c-2a1d-40cf-bcd6-63c4f1d8bdc0"
+            },
+            "ed68fbe5-0604-41b8-94cc-a15b2fd794e5": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "JSX files and routes",
+                "description": "Make jsx files and routes for the React API task manager project",
+                "status": "Completed",
+                "dueDate": "29-07-2024",
+                "_createdOn": 1722526408964,
+                "_id": "ed68fbe5-0604-41b8-94cc-a15b2fd794e5"
+            }
+
+        },
     };
     var rules$1 = {
     	users: {

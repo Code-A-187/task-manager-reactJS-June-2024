@@ -1,4 +1,5 @@
 export default function Task() {
+    
   return (
     <div className="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group shadow-md hover:shadow-lg transition-all" draggable="true">
         <button className="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
