@@ -5,6 +5,7 @@ import SideBar from "./side-bar/SideBar"
 import Task from "./task/Task"
 import UserLogin from "./user-login/UserLogin"
 import UserRegister from "./user-register/UserRegister"
+import CreateTaskModal from "./task/create-task/CreateTaskModal"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register"element={ <UserRegister /> } />
         <Route path="/sidebar"element={ <SideBar /> } />
         <Route path="/task"element={ <Task /> } />
+        <Route path="/tasks/create" element={<CreateTaskModal/>} />
       </Routes>
 
     </>
