@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Register() {
+export default function UserRegister() {
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
       <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">

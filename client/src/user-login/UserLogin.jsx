@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Login() {
+export default function UserLogin() {
 
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">

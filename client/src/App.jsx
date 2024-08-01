@@ -1,20 +1,25 @@
+import { Route, Routes } from "react-router-dom"
 import Header from "./Header"
-import TaskDashboard from "./task-dashboard/TaskDashboard"
+import Home from "./home/Home"
 import SideBar from "./side-bar/SideBar"
 import Task from "./task/Task"
-import Login from "./user-login/Login"
-import Register from "./user-register/Register"
+import UserLogin from "./user-login/UserLogin"
+import UserRegister from "./user-register/UserRegister"
 
 function App() {
 
   return (
     <>
       <Header />
-      <TaskDashboard />
-      <Login />
-      <Register />
-      <SideBar />
-      <Task />
+      
+      <Routes>        
+        <Route path="/"element={ <Home /> } />
+        <Route path="/login"element={ <UserLogin /> } />
+        <Route path="/register"element={ <UserRegister /> } />
+        <Route path="/sidebar"element={ <SideBar /> } />
+        <Route path="/task"element={ <Task /> } />
+      </Routes>
+
     </>
   
   )
