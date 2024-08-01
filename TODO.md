@@ -15,8 +15,8 @@ SoftUni React Course Project
 - [x] Add routes in App.jsx
 - [x] Add links in the navigation
 ## 3. Create Service Layer
-- [ ] Service layer architecture disccusion
-- [ ] Abstract requester
+- [ ] Service layer architecture
+- [x] Abstract requester
 - [ ] Add tasks api
 - [ ] Preseed practice server
 ## 4. Page Implementations
