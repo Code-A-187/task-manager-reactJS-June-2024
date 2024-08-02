@@ -1,5 +1,5 @@
 import TasklistItem from "../all-tasks/task-list-item/TaskListElement";
-import { useGetAllTasks } from "../../hooks/UseTasks";
+import { useGetAllTasks } from "../../hooks/useTasks";
 
 export default function AllTasks() {
     

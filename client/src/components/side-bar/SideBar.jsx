@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function SideBar() {
   return (
-        <nav className="bg-[#121e31] h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] tracking-wide overflow-auto">
-            <div className="flex flex-wrap items-center gap-4 cursor-pointer">
+    <nav className="bg-[#121e31] h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] tracking-wide overflow-auto z-40">
+            <Link to="#" className="py-6">
+                <img src="" alt="Task Manager" className='w-36' />
+            </Link>
+            
+            <div className="flex flex-wrap items-center gap-4 cursor-pointer py-6">
                 <img src='https://readymadeui.com/profile.webp' className="w-10 h-10 rounded-full border-2 border-white" />
                 <div>
                     <p className="text-sm text-white">John Doe</p>
