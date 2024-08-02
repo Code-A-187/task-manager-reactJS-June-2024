@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
 import TasklistItem from "../all-tasks/task-list-item/TaskListElement";
-import tasksAPI from "../../api/tasks-api";
+import { useGetAllTasks } from "../../hooks/UseTasks";
 
 export default function AllTasks() {
-    const [tasks, setTasks] = useState([]);
+    
+    const [tasks] = useGetAllTasks([]);
 
-  useEffect (() => {
-    (async () => {
-      const result = await tasksAPI.getAll();
-      setTasks(result);
-    })();
-
-  }, [])
   return (
     <div className="max-w-6xl mx-auto">
     {tasks.length > 0 ? (
