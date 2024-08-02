@@ -4,6 +4,7 @@ import UserLogin from "../src/components/user-login/UserLogin"
 import UserRegister from "../src/components//user-register/UserRegister"
 import Layout from "./Layout"
 import CreateTaskModal from "./components/create-task/CreateTaskModal"
+import EditTaskModal from "./components/edit-task-modal/EditTask"
 
 function App() {
 
@@ -13,8 +14,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/login" element={<UserLogin />} />
-          <Route path="/regiter" element={<UserRegister />} />
+          <Route path="/register" element={<UserRegister />} />
           <Route path="/tasks/crete" element={<CreateTaskModal />} />
+          <Route path="/tasks/edit" element={<EditTaskModal />} />
+          {/* <Route path="/tasks//details/" element={<DetailsTaskModal />} /> */}
         </Route>
       </Routes>
 

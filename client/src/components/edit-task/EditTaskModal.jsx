@@ -15,7 +15,6 @@ export default function EditTaskModal() {
                             data-original="#000000"></path>
                     </svg>
                 </div>
-
                 <form className="space-y-4 mt-8">
                     <div>
                         <labe className="text-gray-800 text-sm mb-2 block">Name of the product</labe>
