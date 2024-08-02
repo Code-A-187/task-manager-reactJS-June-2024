@@ -1,7 +1,7 @@
 .no-articles {
-    background-color: #ffffff; /* White background for the content */
-    padding: 2rem;             /* Add padding inside the content box */
-    border-radius: 0.5rem;     /* Optional: Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow effect */
-    text-align: center;        /* Center text inside the content box */
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
