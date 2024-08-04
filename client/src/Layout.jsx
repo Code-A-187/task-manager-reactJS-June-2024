@@ -9,17 +9,17 @@ export default function Layout () {
     <div className="flex h-screen font-[sans-serif]">
 
         <nav className="bg-[#121e31] h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] tracking-wide overflow-auto z-40">
-            <SideBar />
+          <SideBar />
         </nav>
 
-        <div className="flex flex-col flex-1 ml-[250px]">
+      <div className="flex flex-col flex-1 ml-[250px]">
         
-            <header className="min-h-[60px] tracking-wide bg-white shadow relative z-50">
-                <Header />
-            </header>
-            <main className="bg-gray-50 px-4 py-12">
-                <Outlet />
-            </main>
+          <header className="min-h-[60px] tracking-wide bg-white shadow relative z-50">
+              <Header />
+          </header>
+          <main className="bg-gray-50 px-4 py-12">
+              <Outlet />
+          </main>
       </div>
     </div>
   );

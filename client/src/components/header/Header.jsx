@@ -25,7 +25,7 @@ export default function Header() {
                     </section>
                 
                 <li className='max-lg:border-b max-lg:py-3 px-3'>
-                    <Link to='/tasks/crete' className='text-gray-300 hover:text-white text-base flex items-center'>
+                    <Link to='' className='text-gray-300 hover:text-white text-base flex items-center'>
                     <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" className="w-4 h-4 mr-3"
                         viewBox="0 0 682.667 682.667">
                         <defs>

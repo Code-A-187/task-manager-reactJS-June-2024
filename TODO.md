@@ -33,9 +33,10 @@ SoftUni React Course Project
 - [ ] Add comments in the component
 - [ ] Clear form
 ## 6. API Hooks
-- [ ] Form Hook
-- [ ] TaskAPI Hooks
+- [x] Form Hook
+- [x] TaskAPI Hooks
 - [ ] Comment Hooks
+- [x] Modal hooks
 ## 7. Authentication
 - [ ] Auth API
   - [ ] Login

@@ -1,8 +1,35 @@
 import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
+import { useCreateTask } from "../../hooks/useTasks";
+import { useNavigate } from 'react-router-dom';
+
+const initialValues = {
+    title: '',
+    description: '',
+    status: '',
+    dueDate: '',
+}
 
 export default function CreateTaskModal() {
-
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+
+    const createTask = useCreateTask();
+
+    const createHandler = async (values) => {
+        try {
+            const { _id: taskId } = await createTask(values);
+            navigate(`/tasks/${taskId}/details`);
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const { 
+        values, 
+        changeHandler, 
+        submitHandler 
+    } = useForm(initialValues, createHandler);
 
     // Function to toggle dropdown visibility
     const handleClick = () => {
@@ -11,7 +38,6 @@ export default function CreateTaskModal() {
 
   return (
 
-    
     <div
             className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
             <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 relative">
@@ -28,17 +54,29 @@ export default function CreateTaskModal() {
                     </svg>
                 </div>
 
-                <form className="space-y-4 mt-8">
+                <form className="space-y-4 mt-8" onSubmit={submitHandler}>
                     <div>
                         <label className="text-gray-800 text-sm mb-2 block">Task title</label>
-                        <input type="text" placeholder="Enter task title"
-                            className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
+                        <input className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" 
+                            type="text" 
+                            placeholder="Enter task title"
+                            name='title'
+                            id='title'
+                            value={values.title || ''}
+                            onChange={changeHandler}
+                             />
                     </div>
 
                     <div>
                         <label className="text-gray-800 text-sm mb-2 block">Task description</label>
-                        <textarea placeholder='Write about the task'
-                            className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3"></textarea>
+                        <textarea className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3" 
+                            placeholder='Write more info about the task'
+                            name="description"
+                            id='description'
+                            value={values.description || ''}
+                            onChange={changeHandler}
+                        
+                        ></textarea>
                     </div>
 
                     <div className="relative font-sans w-max mx-auto">
@@ -46,21 +84,22 @@ export default function CreateTaskModal() {
                             <button
                                 type="button"
                                 id="dropdownToggle"
+                                name="status"
                                 className="px-5 py-2.5 border border-gray-300 text-gray-800 text-sm outline-none bg-white hover:bg-gray-50 flex items-center"
                                 onClick={handleClick}
                             >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-3 fill-gray-500 inline ml-3"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                        </button>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-3 fill-gray-500 inline ml-3"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </button>
 
                         <ul
                             id="dropdownMenu"
@@ -74,14 +113,23 @@ export default function CreateTaskModal() {
 
 
                     <div>
-                        <label className="text-gray-800 text-sm mb-2 block">End date</label>
-                        <input type="date" placeholder="Date for task be completed"
-                            className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
+                        <label className="text-gray-800 text-sm mb-2 block"></label>
+                        <input className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg"
+                            type="date" 
+                            name="dueDate"
+                            id="dueDate"            
+                            placeholder="Date for task to be completed"
+                            value={values.dueDate || ''}
+                            onChange={changeHandler}
+                        />
                     </div>
 
                     <div className="flex justify-end gap-4 !mt-8">
-                        <button type="button"
-                            className="px-6 py-3 rounded-lg text-gray-800 text-sm border-none outline-none tracking-wide bg-gray-200 hover:bg-gray-300">Cancel</button>
+                        <button 
+                            className="px-6 py-3 rounded-lg text-gray-800 text-sm border-none outline-none tracking-wide bg-gray-200 hover:bg-gray-300"
+                            type="button"
+                            onClick={closeModal}
+                        >Cancel</button>
                         <button type="button"
                             className="px-6 py-3 rounded-lg text-white text-sm border-none outline-none tracking-wide bg-blue-600 hover:bg-blue-700">Submit</button>
                     </div>

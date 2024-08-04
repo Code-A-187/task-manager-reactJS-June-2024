@@ -4,7 +4,7 @@ export function useForm(initialValues, submitCallback) {
 
     const [values, setValues] = useState(initialValues);
     
-    // TODO: add suport for dropdownMenu
+    // TODO: add suport for dropdownMenu in form
     const changeHandler = (e) => {
         setValues(state => ({
             ...state,

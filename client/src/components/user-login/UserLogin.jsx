@@ -48,7 +48,7 @@ export default function UserLogin() {
               <button type="button" className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                 Sign in
               </button>
-              <p className="text-gray-800 text-sm text-center mt-6">Don't have an account?<Link to="#" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
+              <p className="text-gray-800 text-sm text-center mt-6">Don't have an account?<Link to="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
             </div>
           </form>
         </div>
