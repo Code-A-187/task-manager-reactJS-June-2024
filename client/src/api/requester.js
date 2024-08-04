@@ -36,6 +36,7 @@ async function requester(method, url, data) {
 
         
         const contentType = response.headers.get('content-type');
+        
         let result;
         if (contentType && contentType.includes('application/json')) {
             result = await response.json();
@@ -48,7 +49,7 @@ async function requester(method, url, data) {
         if (!response.ok) {
             throw result;
         }
-
+        
         return result;
     } catch (error) {
         console.error('Request failed:', error);

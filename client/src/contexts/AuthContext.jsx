@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext({
+    fullName:'',
     userId: '',
     email: '',
     accessToken: '',
@@ -32,6 +33,7 @@ export function AuthContextProvider({ children }) {
     }
 
     const contextData = {
+        fullName: authState?.fullName || '',
         userId: authState?.userId || '',
         email:authState?.email || '',
         accessToken: authState?.accessToken || '',
