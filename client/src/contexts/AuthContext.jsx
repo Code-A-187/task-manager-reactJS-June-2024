@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext({
     userId: '',
@@ -33,9 +33,9 @@ export function AuthContextProvider({ children }) {
 
     const contextData = {
         userId: authState?.userId || '',
-        email:authState.email || '',
-        accessToken: authState.accessToken || '',
-        isAuthenticated: !!authState.accessToken,
+        email:authState?.email || '',
+        accessToken: authState?.accessToken || '',
+        isAuthenticated: !!authState?.accessToken,
         changeAuthState,
         logout
     }

@@ -12,10 +12,11 @@ function App() {
   return (
 	<AuthContextProvider>
 		<Routes>
-			<Route path="/" element={<Layout />} />
+			<Route path="/" element={<Layout />}>
 			<Route index element={<Home />} />
 			<Route path="/login" element={<UserLogin />} />
 			<Route path="/register" element={<UserRegister />} />
+			</Route>
 		</Routes>
 	</AuthContextProvider>
   );

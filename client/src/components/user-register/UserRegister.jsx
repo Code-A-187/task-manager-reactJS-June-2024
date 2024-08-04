@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 
+const initialValues = {
+  fullName: '',
+  email: '',
+  password: '',
+}
+
 export default function UserRegister() {
+
+
+  const {values, changeHandler, submitHandler} = useForm (initialValues, registerHandler)
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
       <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
@@ -13,7 +22,7 @@ export default function UserRegister() {
             <img src="https://readymadeui.com/signin-image.webp" className="lg:w-11/12 w-full object-cover" alt="login-image" />
           </div>
 
-          <form className="md:max-w-md w-full mx-auto">
+          <form className="md:max-w-md w-full mx-auto" onSubmit={submitHandler}>
             <div className="mb-12">
               <h3 className="text-blue-500 md:text-3xl text-2xl font-extrabold max-md:text-center">Create an account</h3>
             </div>
@@ -21,7 +30,12 @@ export default function UserRegister() {
             <div>
               <label className="text-gray-800 text-xs block mb-2">Full Name</label>
               <div className="relative flex items-center">
-                <input name="name" type="text" required className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none" placeholder="Enter name" />
+                <input 
+                  className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none" 
+                  type="text" 
+                  name="name" 
+                  required
+                  placeholder="Enter name" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2" viewBox="0 0 24 24">
                   <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                   <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
@@ -56,10 +70,10 @@ export default function UserRegister() {
             </div>
 
             <div className="mt-12">
-              <button type="button" className="w-full py-3 px-6 text-sm tracking-wider font-semibold rounded-md bg-blue-600 hover:bg-blue-700 text-white focus:outline-none">
+              <button type="submit" className="w-full py-3 px-6 text-sm tracking-wider font-semibold rounded-md bg-blue-600 hover:bg-blue-700 text-white focus:outline-none">
                 Creat an account
               </button>
-              <p className="text-sm mt-6 text-gray-800">Already have an account? <Link to="#;" className="text-blue-500 font-semibold hover:underline ml-1">Login here</Link></p>
+              <p className="text-sm mt-6 text-gray-800">Already have an account? <Link to="/login" className="text-blue-500 font-semibold hover:underline ml-1">Login here</Link></p>
             </div>
           </form>
         </div>

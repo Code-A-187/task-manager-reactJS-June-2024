@@ -1,6 +1,26 @@
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../../api/auth-api'
+import { useForm } from '../../hooks/useForm';
+import { useAuthContext } from '../../contexts/AuthContext';
+
+const initialValues = { email: '', password: ''}
 
 export default function UserLogin() {
+    const navigate = useNavigate();
+    const { changeAuthState } = useAuthContext()
+
+    const loginHandler = async ({ email, password }) => {
+    try {
+        const { authData } = await login(email, password);
+        changeAuthState(authData)
+        navigate('/')
+    } catch (err) {
+        console.error('Login failed', err);
+    }
+    };
+
+    const {values, changeHandler, submitHandler} = useForm (initialValues, loginHandler)
 
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
@@ -13,14 +33,23 @@ export default function UserLogin() {
           <div className="max-md:order-1 lg:min-w-[450px]">
             <img src="https://readymadeui.com/signin-image.webp" className="lg:w-11/12 w-full object-cover" alt="login-image" />
           </div>
-          <form className="md:max-w-md w-full mx-auto">
+          <form className="md:max-w-md w-full mx-auto" onSubmit={submitHandler}>
             <div className="mb-12">
               <h3 className="text-4xl font-extrabold text-blue-600">Sign in</h3>
             </div>
 
             <div>
               <div className="relative flex items-center">
-                <input name="email" type="text" required className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none" placeholder="Enter email" />
+                <input 
+                  className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+                  id="email"
+                  name="email" 
+                  type="text"
+                  value={values.email}
+                  onChange={changeHandler}
+                  required 
+                  placeholder="Enter email" 
+                />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                   <defs>
                     <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -37,7 +66,15 @@ export default function UserLogin() {
 
             <div className="mt-8">
               <div className="relative flex items-center">
-                <input name="password" type="password" required className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none" placeholder="Enter password" />
+                <input
+                    className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+                    name="password"
+                    id="password"
+                    type="password"
+                    value={values.password}
+                    onChange={changeHandler}
+                    required  
+                    placeholder="Enter password" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
                   <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                 </svg>
@@ -45,7 +82,7 @@ export default function UserLogin() {
             </div>
 
             <div className="mt-12">
-              <button type="button" className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+              <button type="submit" value="Login" className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                 Sign in
               </button>
               <p className="text-gray-800 text-sm text-center mt-6">Don't have an account?<Link to="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
