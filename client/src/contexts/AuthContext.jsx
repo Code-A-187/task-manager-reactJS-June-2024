@@ -29,8 +29,8 @@ export function AuthContextProvider({ children }) {
     }
 
     const logout = () => {
-        setAuthState(nulll)
-    }
+        setAuthState(null);
+    };
 
     const contextData = {
         fullName: authState?.fullName || '',

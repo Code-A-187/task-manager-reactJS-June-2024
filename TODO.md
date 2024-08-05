@@ -38,18 +38,14 @@ SoftUni React Course Project
 - [ ] Comment Hooks
 - [x] Modal hooks
 ## 7. Authentication
-- [ ] Auth API
-  - [ ] Login
-  - [ ] Register
-  - [ ] Logout
-- [ ] Auth API hook
-  - [ ] Login
-  - [ ] Register
-  - [ ] Logout
-- [ ] Auth state & context
-- [ ] Token management
-- [ ] Login
-- [ ] Register
+- [x] Auth API
+  - [x] Login
+  - [x] Register
+  - [x] Logout
+- [x] Auth state & context
+- [x] Token management
+- [x] Login
+- [x] Register
   - [ ] Add form validation
 - [ ] Logout
 - [ ] Authorized Requests

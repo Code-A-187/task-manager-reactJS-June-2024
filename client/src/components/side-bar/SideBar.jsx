@@ -1,19 +1,50 @@
 import { Link } from "react-router-dom";
+import { logout } from "../../api/auth-api"
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 export default function SideBar() {
+    const navigate = useNavigate();
+    const { isAuthenticated, logout: localLogout } = useAuthContext();
+
+    const logoutHandler = async () => {
+        try {
+            await logout();
+            localLogout();
+            navigate('/login');
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    };
+
   return (
     <nav className="bg-[#121e31] h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] tracking-wide overflow-auto z-40">
-            <Link to="#" className="py-6">
+            <Link to="/" className="py-6">
                 <img src="" alt="Task Manager" className='w-36' />
             </Link>
-            
-            <div className="flex flex-wrap items-center gap-4 cursor-pointer py-6">
-                <img src='https://readymadeui.com/profile.webp' className="w-10 h-10 rounded-full border-2 border-white" />
-                <div>
-                    <p className="text-sm text-white">John Doe</p>
-                    <p className="text-xs text-gray-300 mt-0.5">johndoe23@gmail.com</p>
+
+                <div className="flex flex-wrap items-center justify-center gap-4 py-6">
+                    
+                    {isAuthenticated ? (
+                        <div className="flex items-center gap-4">
+                            <img 
+                                src='https://readymadeui.com/profile.webp' 
+                                className="w-10 h-10 rounded-full border-2 border-white" 
+                            />
+                            <div>
+                                <p className="text-sm text-white">John Doe</p>
+                                <p className="text-xs text-gray-300 mt-0.5">johndoe23@gmail.com</p>
+                            </div>
+                        </div> 
+                    ) : (
+                        <Link to="/login" className="py-6">
+                            <p className="text-sm text-white text-center">Guest</p>
+                        </Link>
+                        
+                    )
+                    }
                 </div>
-            </div>
+                
 
             <hr className="my-6 border-gray-400" />
             <ul className="space-y-3">
@@ -55,13 +86,15 @@ export default function SideBar() {
             </ul>
 
             <hr className="my-6 border-gray-400" />
-                <Link to="#" className="text-white text-sm flex  items-center hover:bg-gray-700 rounded px-4 py-3 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-[18px] h-[18px] mr-4"
-                    viewBox="0 0 512 512">
-                    <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
-                </svg>
-                <span>Logout</span>
-                </Link>
+                {isAuthenticated ? (
+                    <Link to="#" className="text-white text-sm flex  items-center hover:bg-gray-700 rounded px-4 py-3 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-[18px] h-[18px] mr-4"
+                            viewBox="0 0 512 512">
+                            <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+                        </svg>
+                        <span>Logout</span>
+                    </Link>
+                ) : null }
         </nav>
     );
 }
