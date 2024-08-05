@@ -1,5 +1,8 @@
-export default function EditTaskModal() {
+import Modal from "../modal/Modal";
+
+export default function EditTaskModal({ closeFn = () => null, open = false }) {
   return (
+    <Modal open={open}>
     <div
         className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
             <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 relative">
@@ -17,43 +20,50 @@ export default function EditTaskModal() {
                 </div>
                 <form className="space-y-4 mt-8">
                     <div>
-                        <labe className="text-gray-800 text-sm mb-2 block">Name of the product</labe>
+                        <label className="text-gray-800 text-sm mb-2 block">Name of the product</label>
                         <input type="text" placeholder="Enter product name"
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
                     </div>
 
                     <div>
-                        <labe className="text-gray-800 text-sm mb-2 block">Descriptions</labe>
+                        <label className="text-gray-800 text-sm mb-2 block">Descriptions</label>
                         <textarea placeholder='Write about the product'
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3"></textarea>
                     </div>
 
                     <div>
-                        <labe className="text-gray-800 text-sm mb-2 block">Quantity</labe>
+                        <label className="text-gray-800 text-sm mb-2 block">Quantity</label>
                         <input type="number" placeholder="Enter quantity"
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
                     </div>
 
                     <div>
-                        <labe className="text-gray-800 text-sm mb-2 block">Selling price</labe>
+                        <label className="text-gray-800 text-sm mb-2 block">Selling price</label>
                         <input type="number" placeholder="Enter price"
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
                     </div>
 
                     <div>
-                        <labe className="text-gray-800 text-sm mb-2 block">Category</labe>
+                        <label className="text-gray-800 text-sm mb-2 block">Category</label>
                         <input type="number" placeholder="Enter product category"
                             className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
                     </div>
 
                     <div className="flex justify-end gap-4 !mt-8">
-                        <button type="button"
-                            className="px-6 py-3 rounded-lg text-gray-800 text-sm border-none outline-none tracking-wide bg-gray-200 hover:bg-gray-300">Cancel</button>
+                        <button
+                            className="px-6 py-3 rounded-lg text-gray-800 text-sm border-none outline-none tracking-wide bg-gray-200 hover:bg-gray-300"
+                            type="button"
+
+                            onClick={closeFn}
+                        >
+                            Cancel
+                        </button>
                         <button type="button"
                             className="px-6 py-3 rounded-lg text-white text-sm border-none outline-none tracking-wide bg-blue-600 hover:bg-blue-700">Submit</button>
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
+    </Modal>
    );
 }
