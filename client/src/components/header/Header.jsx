@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext"
 
-
-
-
-export default function Header() {
+export default function Header({ openModal }) {
 
     const { isAuthenticated } = useAuthContext();
 
@@ -26,23 +23,17 @@ export default function Header() {
 
                     {isAuthenticated ? (
 
-                        <li className='max-lg:border-b max-lg:py-3 px-3'>
-                            <Link to='' className='text-gray-300 hover:text-white text-base flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" className="w-4 h-4 mr-3"
-                                    viewBox="0 0 682.667 682.667">
-                                    <defs>
-                                    <clipPath id="a" clipPathUnits="userSpaceOnUse">
-                                        <path d="M0 512h512V0H0Z" data-original="#000000" />
-                                    </clipPath>
-                                    </defs>
-                                    <g clipPath="url(#a)" transform="matrix(1.33 0 0 -1.33 0 682.667)">
-                                    <path strokeinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="40"
-                                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
-                                        data-original="#000000" />
-                                    </g>
+                        <li className='max-lg:border-b max-lg:py-4 px-3'>
+                            <button
+                                className='text-gray-300 hover:text-white text-base flex items-center'
+                                onClick={openModal}
+                                data-modal="create-task"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" className="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" d="M12 4v16m8-8H4"/>
                                 </svg>
-                                Create Task
-                            </Link>
+                            Create Task
+                            </button>
                         </li>
 
                         ) : (

@@ -12,8 +12,8 @@ export default function UserLogin() {
 
     const loginHandler = async ({ email, password }) => {
     try {
-        const authData= await login(email, password);
-        
+        const { password: _, ...authData } = await login(email, password);
+
         changeAuthState(authData)
 
         navigate('/')

@@ -1,10 +1,25 @@
-// Layout.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './components/header/Header';
 import SideBar from './components/side-bar/SideBar';
+import ModalManager from './ModalManager';
 
 export default function Layout () {
+    const [modalOpen, setModalOpen] = useState(false);
+  
+    const openModal = event => {
+      event.preventDefault();
+      const {
+        target: {
+          dataset: { modal }
+        }
+      } = event;
+      if (modal) setModalOpen(modal);
+    };
+  
+    const closeModal = () => {
+      setModalOpen('');
+    };
   return (
     <div className="flex h-screen font-[sans-serif]">
 
@@ -15,11 +30,12 @@ export default function Layout () {
       <div className="flex flex-col flex-1 ml-[250px]">
         
           <header className="min-h-[60px] tracking-wide bg-white shadow relative z-50">
-              <Header />
+              <Header openModal={openModal} />
           </header>
           <main className="bg-gray-50 px-4 py-12">
               <Outlet />
           </main>
+            <ModalManager closeFn={closeModal} modal={modalOpen} />
       </div>
     </div>
   );

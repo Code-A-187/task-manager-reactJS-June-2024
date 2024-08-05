@@ -5,7 +5,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 export default function SideBar() {
     const navigate = useNavigate();
-    const { isAuthenticated, logout: localLogout } = useAuthContext();
+    const { isAuthenticated, logout: localLogout, email, fullName } = useAuthContext();
 
     const logoutHandler = async () => {
         try {
@@ -32,8 +32,8 @@ export default function SideBar() {
                                 className="w-10 h-10 rounded-full border-2 border-white" 
                             />
                             <div>
-                                <p className="text-sm text-white">John Doe</p>
-                                <p className="text-xs text-gray-300 mt-0.5">johndoe23@gmail.com</p>
+                                <p className="text-sm text-white">{fullName}</p>
+                                <p className="text-xs text-gray-300 mt-0.5">{email}</p>
                             </div>
                         </div> 
                     ) : (
