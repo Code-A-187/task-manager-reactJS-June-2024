@@ -12,8 +12,10 @@ export default function UserLogin() {
 
     const loginHandler = async ({ email, password }) => {
     try {
-        const { authData } = await login(email, password);
+        const authData= await login(email, password);
+        
         changeAuthState(authData)
+
         navigate('/')
     } catch (err) {
         console.error('Login failed', err);
@@ -42,6 +44,7 @@ export default function UserLogin() {
               <div className="relative flex items-center">
                 <input 
                   className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+                  autoComplete="email"
                   id="email"
                   name="email" 
                   type="text"
@@ -68,6 +71,7 @@ export default function UserLogin() {
               <div className="relative flex items-center">
                 <input
                     className="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+                    autoComplete="current-password"
                     name="password"
                     id="password"
                     type="password"

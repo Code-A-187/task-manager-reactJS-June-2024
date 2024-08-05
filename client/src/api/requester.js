@@ -49,8 +49,11 @@ async function requester(method, url, data) {
         if (!response.ok) {
             throw result;
         }
-        
+
         return result;
+        
+        
+
     } catch (error) {
         console.error('Request failed:', error);
         throw error;

@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext({
-    fullName:'',
     userId: '',
     email: '',
     accessToken: '',
@@ -29,15 +28,14 @@ export function AuthContextProvider({ children }) {
     }
 
     const logout = () => {
-        setAuthState(null);
-    };
+        setAuthState(null)
+    }
 
     const contextData = {
-        fullName: authState?.fullName || '',
-        userId: authState?.userId || '',
-        email:authState?.email || '',
-        accessToken: authState?.accessToken || '',
-        isAuthenticated: !!authState?.accessToken,
+        userId: authState?.userId,
+        email:authState?.email,
+        accessToken: authState?.accessToken,
+        isAuthenticated: !!authState?.email,
         changeAuthState,
         logout
     }
@@ -51,5 +49,6 @@ export function AuthContextProvider({ children }) {
 
 export function useAuthContext() {
     return useContext(AuthContext);
+
 }
 

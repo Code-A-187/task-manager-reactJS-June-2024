@@ -15,8 +15,8 @@ export default function UserRegister() {
 	
 	const registerHandler = async ({ email, password, fullName }) => {
 		try {
-			const { authData } = await register( email, password, fullName)
-
+			const authData= await register( email, password, fullName)
+			
 			changeAuthState(authData);
 
 			navigate('/')
