@@ -5,6 +5,7 @@ import UserRegister from "../src/components//user-register/UserRegister"
 import Layout from "./Layout"
 
 import { AuthContextProvider } from "./contexts/AuthContext"
+import TaskDetailsModal from "./components/tasks/task-details/TaskDetails"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 			<Route index element={<Home />} />
 			<Route path="/login" element={<UserLogin />} />
 			<Route path="/register" element={<UserRegister />} />
+			<Route path="/games/:gameId/details" element={ <TaskDetailsModal /> } />
 			</Route>
 		</Routes>
 	</AuthContextProvider>

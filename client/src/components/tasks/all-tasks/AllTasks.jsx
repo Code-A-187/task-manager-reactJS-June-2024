@@ -1,5 +1,5 @@
-import TasklistItem from "../all-tasks/task-list-item/TaskListElement";
-import { useGetAllTasks } from "../../hooks/useTasks";
+import TaskListItem from "../task-list-item/TaskListElement";
+import { useGetAllTasks } from "../../../hooks/useTasks";
 
 export default function AllTasks() {
     
@@ -10,7 +10,7 @@ export default function AllTasks() {
     {tasks.length > 0 ? (
       <div className="grid lg:grid-cols-3 md:grid-cols-2 max-md:max-w-lg mx-auto gap-8">
         {tasks.map(task => (
-          <TasklistItem key={task._id} {...task} />
+          <TaskListItem key={task._id} {...task} />
         ))}
       </div>
     ) : (

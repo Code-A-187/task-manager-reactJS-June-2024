@@ -1,6 +1,7 @@
 import Modal from "../modal/Modal";
 
 export default function DeleteModal({ closeFn = () => null, open = false }) {
+
   return (
     <Modal open={open}>
        <div

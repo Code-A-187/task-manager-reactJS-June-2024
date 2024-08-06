@@ -18,7 +18,7 @@ export function useGetAllTasks () {
     return [tasks, setTasks]  
 }
 
-export function useGetOneGames(taskId) {
+export function useGetOneTasks(taskId) {
     const [task, setTask] = useState({});
     
     useEffect(() => {

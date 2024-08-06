@@ -3,9 +3,10 @@ import { Outlet } from 'react-router-dom';
 import Header from './components/header/Header';
 import SideBar from './components/side-bar/SideBar';
 import ModalManager from './ModalManager';
+import TasklistItem from './components/tasks/task-list-item/TaskListElement';
 
 export default function Layout () {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModal] = useState(false);
   
     const openModal = event => {
       event.preventDefault();
@@ -14,11 +15,11 @@ export default function Layout () {
           dataset: { modal }
         }
       } = event;
-      if (modal) setModalOpen(modal);
+      if (modal) setModal(modal);
     };
   
     const closeModal = () => {
-      setModalOpen('');
+      setModal('');
     };
   return (
     <div className="flex h-screen font-[sans-serif]">
@@ -36,6 +37,7 @@ export default function Layout () {
               <Outlet />
           </main>
             <ModalManager closeFn={closeModal} modal={modalOpen} />
+            <TasklistItem closeFn={closeModal} modal={modalOpen} />
       </div>
     </div>
   );

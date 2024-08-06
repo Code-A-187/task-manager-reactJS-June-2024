@@ -1,9 +1,8 @@
 import React from 'react';
-import Modal from '../modal/Modal';
 
-export default function TaskDetailsModal({ closeFn = () => null, open = false }) {
+
+export default function TaskDetailsModal() {
   return (
-    <Modal open={open}>
       <div className="modal--mask">
         <div className="modal-window">
           <header className="modal--header">
@@ -19,6 +18,6 @@ export default function TaskDetailsModal({ closeFn = () => null, open = false })
           </footer>
         </div>
       </div>
-    </Modal>
+
    );
 }
