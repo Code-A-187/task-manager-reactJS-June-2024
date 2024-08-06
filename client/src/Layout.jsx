@@ -37,7 +37,6 @@ export default function Layout () {
               <Outlet />
           </main>
             <ModalManager closeFn={closeModal} modal={modalOpen} />
-            <TasklistItem closeFn={closeModal} modal={modalOpen} />
       </div>
     </div>
   );
