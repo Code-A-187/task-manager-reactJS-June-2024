@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext"
+import { useModalContext } from "../../contexts/ModalContext";
 
-export default function Header({ openModal }) {
+export default function Header() {
 
     const { isAuthenticated } = useAuthContext();
+    const { openModal } = useModalContext();
 
   return (
         <div className='flex bg-[#121e31] min-h-[80px] flex-wrap items-center justify-between gap-2 w-full'>
@@ -23,7 +25,7 @@ export default function Header({ openModal }) {
 
                     {isAuthenticated ? (
 
-                        <li className='max-lg:border-b max-lg:py-4 px-3'>
+                        <li className='max-lg:border-b max-lg:py-3 px-3'>
                             <button
                                 className='text-gray-300 hover:text-white text-base flex items-center'
                                 onClick={openModal}

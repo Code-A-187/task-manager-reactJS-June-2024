@@ -45,11 +45,11 @@ export default function TaskDetails() {
         </form>
 
           <h5 className="text-sm font-semibold mt-4">Comments</h5>
-          <div class="flex flex-col">
+          <div className="flex flex-col">
 
-                  <div class="border rounded-md p-3 ml-3 my-3">
-                      <div class="flex gap-3 items-center">
-                          <h3 class="font-bold">
+                  <div className="border rounded-md p-3 ml-3 my-3">
+                      <div className="flex gap-3 items-center">
+                          <h3 className="font-bold">
                               User name
                           </h3>
                       </div>
@@ -57,13 +57,13 @@ export default function TaskDetails() {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         </p>
                     </div>
-                    <div class="border rounded-md p-3 ml-3 my-3">
-                      <div class="flex gap-3 items-center">
-                        <h3 class="font-bold">
+                    <div className="border rounded-md p-3 ml-3 my-3">
+                      <div className="flex gap-3 items-center">
+                        <h3 className="font-bold">
                               User name
                           </h3>
                       </div>
-                      <p class="text-gray-600 mt-2">
+                      <p className="text-gray-600 mt-2">
                         this is sample commnent
                       </p>
                     </div>
