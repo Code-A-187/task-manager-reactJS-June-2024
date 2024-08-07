@@ -16,8 +16,13 @@ export default function Comments({ taskId }) {
         submitHandler,
         values,
     } = useForm(initialValues, async ({ comment }) => {
-        const newComment = await createComment(taskId, comment)
-        console.log(newComment)
+        try {
+            const newComment = await createComment(taskId, comment)
+            setComments(oldComments => [...oldComments, newComment])
+        } catch (err) {
+            console.log(err.message);
+        }
+        
     })
     
   return (
