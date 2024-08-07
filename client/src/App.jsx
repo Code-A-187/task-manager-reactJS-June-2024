@@ -11,6 +11,7 @@ import AllTasks from "./components/tasks/all-tasks/AllTasks"
 import CompletedTasks from "./components/tasks/completed-tasks/CompletedTasks"
 import ImportantTasks from "./components/tasks/important-tasks/ImportantTasks"
 import DoItNowTasks from "./components/tasks/do-it-now-tasks/DoItNowTasks"
+import PrivateGuard from "./components/Route Guards/PrivateRouteGuard"
 
 function App() {
 
@@ -22,11 +23,13 @@ function App() {
 			<Route index element={<Home /> } />
 			<Route path="/login" element={<UserLogin />} />
 			<Route path="/register" element={<UserRegister />} />
-			<Route path="/tasks/:taskId/details" element={ <TaskDetails /> } />
-			<Route path="/all-tasks" element={<AllTasks /> }/>
-			<Route path="/important-tasks" element={<ImportantTasks /> }/>
-			<Route path="/completed-tasks" element={<CompletedTasks /> }/>
-			<Route path="/now-tasks" element={<DoItNowTasks /> }/>
+			<Route element={<PrivateGuard />}>
+				<Route path="/tasks/:taskId/details" element={ <TaskDetails /> } />
+				<Route path="/all-tasks" element={<AllTasks /> }/>
+				<Route path="/important-tasks" element={<ImportantTasks /> }/>
+				<Route path="/completed-tasks" element={<CompletedTasks /> }/>
+				<Route path="/now-tasks" element={<DoItNowTasks /> }/>
+			</Route>
 			</Route>
 		</Routes>
 	</AuthContextProvider>
