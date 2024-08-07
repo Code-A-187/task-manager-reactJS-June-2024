@@ -35,8 +35,8 @@ SoftUni React Course Project
     - [x] Wrapp modals
     - [x] Modal close functionality
     - [x] Close when click outside of modal
-    - [ ] Delete on server
-    - [ ] Refresh state of page under modal
+    - [x] Delete on server
+    - [x] Refresh state of page under modal
 - [ ] Home - Last six tasks
 ## 5. Modal Implementations
   - [x] Modal manager
@@ -62,14 +62,18 @@ SoftUni React Course Project
 - [x] Token management
 - [x] Login
 - [x] Register
-  - [ ] Add form validation
+  - [x] Add form validation
 - [x] Logout
-- [ ] Authorized Requests
+- [x] Authorized Requests
 ## 9. UI Implementation 
 - [ ] Dynamic navigation
 - [x] Create task
-  - [ ] API function
-  - [ ] Hook
+  - [x] API function
+  - [x] Hook
+- [x] Guard routes
+  - public route guard
+  - private route guard
+- [x] 404 - Not found
 - [ ] My tasks 
     - [ ] Latest tasks
     - [ ] Important tasks
