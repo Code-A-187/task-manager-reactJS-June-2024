@@ -22,7 +22,6 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
         submitHandler,
     } = useForm(Object.assign(initialValues, task), async (values) => {
         await tasksAPI.update(taskId, values)
-        
         navigate(0)
         closeFn();
         

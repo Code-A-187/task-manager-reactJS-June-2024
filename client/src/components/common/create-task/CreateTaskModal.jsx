@@ -1,6 +1,7 @@
 import Modal from "../modal/Modal";
 import { useCreateTask } from "../../../hooks/useTasks";
 import { useForm } from "../../../hooks/useForm"
+import { Navigate, useNavigate } from "react-router-dom";
 
 const initialValues = {
         title: '',
@@ -13,6 +14,7 @@ const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function CreateTaskModal({ closeFn, open = false }) {
     const createGame = useCreateTask();
+    const navigate = useNavigate();
 
     const createHandler = async (values) => {
 
@@ -21,8 +23,9 @@ export default function CreateTaskModal({ closeFn, open = false }) {
             return;
           }
         try {
-          await createGame(values);
+          const newTask = await createGame(values);
           alert("Task edited successfully!");
+          navigate(`tasks/${newTask._id}/details`)
           closeFn();
         } catch (error) {
           console.error("Failed to create task:", error);
