@@ -1,3 +1,4 @@
+import AllTasks from '../tasks/all-tasks/AllTasks';
 import LatestTasks from '../tasks/latest-tasks/LatestTasks';
 
 export default function Home() {

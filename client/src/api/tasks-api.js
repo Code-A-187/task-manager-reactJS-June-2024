@@ -15,6 +15,52 @@ export const getAll = async () => {
     }
 };
 
+export const getLatest = async () => {
+    try {
+        const params = new URLSearchParams({
+            sortBy: '_createdOn desc',
+            pageSize: 6,
+        });
+
+        const queryString = Object.keys(params)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            .join('&');
+
+        const result = await request.get(`${BASE_URL}?${queryString}`);
+        
+        
+        const latestTasks = Object.values(result);
+
+        return latestTasks; 
+
+    } catch (err) {
+        console.error('Failed to fetch latest tasks:', err);
+        throw new Error('Unable to fetch latest tasks');
+    }
+};
+
+
+export const getImportantTasks = async () => {
+    try {
+        const params = {
+            status: 'Important'
+        };
+
+        const queryString = Object.keys(params)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            .join('&');
+
+        const result = await request.get(`${BASE_URL}?${queryString}`);
+        const importantTasks = Object.values(result);
+
+        return importantTasks; 
+
+    } catch (err) {
+        console.error('Failed to fetch important tasks:', err);
+        throw new Error('Unable to fetch important tasks');
+    }
+};
+
 export const getOne = async (taskId) => {
     try {
 
@@ -42,9 +88,6 @@ export const remove = (taskId) => request.del(`${BASE_URL}/${taskId}`)
 
 export const update = (taskId, gameData) => request.put(`${BASE_URL}/${taskId}`, gameData)
 
-export const getLatest =  async () => {
-    
-}
 
 const tasksAPI = {
     getAll,

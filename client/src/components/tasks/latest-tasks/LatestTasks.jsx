@@ -1,9 +1,11 @@
 import TaskListItem from "../task-list-item/TaskListElement";
-import { useGetAllTasks } from "../../../hooks/useTasks";
+import { useGetLatestTasks } from "../../../hooks/useTasks";
 
 export default function LatestTasks() {
-  
-  const [tasks] = useGetAllTasks([]);
+  const { tasks, loading, error } = useGetLatestTasks();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p className="error-message">{error}</p>;
     
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import tasksAPI from "../api/tasks-api";
+import tasksAPI, { getLatest } from "../api/tasks-api";
 
 export function useGetAllTasks () {
     const [tasks, setTasks] = useState([]);
@@ -17,6 +17,33 @@ export function useGetAllTasks () {
 
     return [tasks, setTasks]  
 }
+
+export function useGetLatestTasks() {
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+
+        (async () => {
+            try {
+                const result = await getLatest();
+                setTasks(result);
+            } catch (err) {
+                setError('Failed to fetch latest tasks. Please try again later.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        })();
+        return () => {
+
+        };
+    }, []);
+
+    return { tasks, loading, error };
+}
+
 
 export function useGetOneTasks(taskId) {
     const [task, setTask] = useState({});

@@ -82,5 +82,6 @@ SoftUni React Course Project
 ## Notes
   1. Latest Games
      2. URL `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=6`
+              http://localhost:3030/data/tasks?sortBy=_createdOn+desc&pageSize=6
      3. USE URLSearchParams
   2. seedData - line 1341 in server.js
