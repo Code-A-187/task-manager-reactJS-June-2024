@@ -2,7 +2,8 @@ import TaskListItem from "../task-list-item/TaskListElement";
 import { useGetAllTasks } from "../../../hooks/useTasks";
 
 export default function LatestTasks() {
-    
+  
+  const [tasks] = useGetAllTasks([]);
     
 
   return (

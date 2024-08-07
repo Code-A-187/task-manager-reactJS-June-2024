@@ -61,7 +61,7 @@ export default function TasklistItem({
             </svg>
             <span className="ml-1 leading-none">subs</span>
         </div> */}
-        <img className="w-6 h-6 ml-auto rounded-full" src=''/>
+        {/* <img className="w-6 h-6 ml-auto rounded-full" src=''/> */}
     </div>
     </div>
    );
