@@ -1,5 +1,8 @@
-
+import { useModalContext } from "../../../contexts/ModalContext"
+    
 export default function TaskDetails() {
+    
+    const { openModal } = useModalContext();
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
     <div className="relative flex flex-col items-start p-4 bg-white rounded-lg shadow-md w-1/2 max-h-screen overflow-y-auto">
@@ -18,11 +21,15 @@ export default function TaskDetails() {
     <div className="flex mt-4">
         <button 
             className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
+            data-modal="edit-task"
+            onClick={openModal}
         >
             Edit
         </button>
         <button 
             className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
+            data-modal="delete-modal"
+            onClick={openModal}
         >
             Delete
         </button>
@@ -53,7 +60,7 @@ export default function TaskDetails() {
                               User name
                           </h3>
                       </div>
-                        <p class="text-gray-600 mt-2">
+                        <p className="text-gray-600 mt-2">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         </p>
                     </div>

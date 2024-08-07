@@ -11,11 +11,9 @@ const initialValues = {
 
 const taskStatuses = ["Pending", "In Progress", "Important"];
 
-export default function CreateTaskModal({ closeFn = () => null, open = false }) {
+export default function CreateTaskModal({ closeFn, open = false }) {
     const createGame = useCreateTask();
 
-    
-    
     const createHandler = async (values) => {
 
         if (values.status && !taskStatuses.includes(values.status)) {
@@ -24,7 +22,7 @@ export default function CreateTaskModal({ closeFn = () => null, open = false }) 
           }
         try {
           await createGame(values);
-          alert("Task created successfully!");
+          alert("Task edited successfully!");
           closeFn();
         } catch (error) {
           console.error("Failed to create task:", error);
