@@ -24,8 +24,9 @@ function App() {
                     <Route element={<PublicGuard />}>
                         <Route path="/login" element={<UserLogin />} />
                         <Route path="/register" element={<UserRegister />} />
+                        
                     </Route>
-
+                    <Route path="/tasks/:taskId/details" element={<TaskDetails />} />
                     <Route element={<PrivateGuard />}>
                         <Route path="/tasks/:taskId/details" element={<TaskDetails />} />
                         <Route path="/all-tasks" element={<AllTasks />} />

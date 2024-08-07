@@ -32,6 +32,7 @@ export default function TaskDetails() {
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
         <div className="relative flex flex-col items-start p-4 bg-white rounded-lg shadow-md w-1/2 max-h-screen overflow-y-auto">
+                <h3 className="text-blue-600 text-xl font-bold flex-1">Task Details</h3>
                 <span className={`flex items-center h-6 px-3 text-xs font-semibold rounded-full ${statusColorClasses}`}>{task.status}</span>
                 <h3 className="mt-3 text-sm font-medium">{task.title}</h3>
                 <p className="mt-3 text-sm text-gray-800 w-auto font-medium">{task.description}</p>
