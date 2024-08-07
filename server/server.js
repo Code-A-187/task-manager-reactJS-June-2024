@@ -1376,7 +1376,7 @@
                 "_createdOn": 1723023296211,
                 "_id": "dcbe6262-400e-40dd-b23a-658feb2d7c76"
             },
-            "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3":{
+            "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "title": "Implement route guards for the private AND the public part",
                 "description": "Guest users shouldn‘t be able to access private pages, logged-in users shouldn‘t be able to see the login/register pages",
@@ -1385,7 +1385,7 @@
                 "_createdOn": 1723023459196,
                 "_id": "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3"
             },
-            "1c67ac80-1410-4c55-85ac-b49c2147b13b" :{
+            "1c67ac80-1410-4c55-85ac-b49c2147b13b": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "title": "Implement client-side routing",
                 "description": "Should make client-side routing to at least 5 pages (at least 2 with parameters)",
@@ -1393,10 +1393,52 @@
                 "dueDate": "08-08-2024",
                 "_createdOn": 1723023783009,
                 "_id": "1c67ac80-1410-4c55-85ac-b49c2147b13b"
-            }
-
-
+            },
         },
+        comments: {
+            "23d3a4a2-3c00-471c-a3d0-89302aaa0c18": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "taskId": "e8740253-8c08-4c0b-b5c0-86c61495d658",
+                "text": "sfagsdg",
+                "_createdOn": 1723046479185,
+                "_id": "23d3a4a2-3c00-471c-a3d0-89302aaa0c18"
+            },
+            "7c2c12a6-61c1-4437-9bf0-c1bdb4bc6180": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "taskId": "4d43485c-2a1d-40cf-bcd6-63c4f1d8bdc0",
+                "text": "gsadgsadgsad",
+                "_createdOn": 1723046482870,
+                "_id": "7c2c12a6-61c1-4437-9bf0-c1bdb4bc6180"
+            },
+            "237ee9ec-efff-46f6-a38e-de19d294617c": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "taskId": "ed68fbe5-0604-41b8-94cc-a15b2fd794e5",
+                "text": "dgasdgsad",
+                "_createdOn": 1723046486719,
+                "_id": "237ee9ec-efff-46f6-a38e-de19d294617c"
+            },
+            "98a081a4-d4b9-4f57-9173-d0ae7b76bba1": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "taskId": "dcbe6262-400e-40dd-b23a-658feb2d7c76",
+                "text": "sadgasdgsadg",
+                "_createdOn": 1723046490594,
+                "_id": "98a081a4-d4b9-4f57-9173-d0ae7b76bba1"
+            },
+            "3b535e65-af77-41b4-8e4e-80373213492b": {
+            "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "taskId": "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3",
+                "text": "gsadgsadgsadg",
+                "_createdOn": 1723046494391,
+                "_id": "3b535e65-af77-41b4-8e4e-80373213492b"
+            },
+            "f2b21548-7338-4957-842e-2001d1717e82": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "taskId": "1c67ac80-1410-4c55-85ac-b49c2147b13b",
+                "text": "sdgsadgasdgasg",
+                "_createdOn": 1723046497940,
+                "_id": "f2b21548-7338-4957-842e-2001d1717e82"
+            }
+        }
     };
     var rules$1 = {
     	users: {
