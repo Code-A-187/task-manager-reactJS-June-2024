@@ -4,6 +4,20 @@ import { useModalContext } from "../../../contexts/ModalContext"
 import Comments from "./comments/Comments";
 import { useAuthContext } from "../../../contexts/AuthContext";
 
+const getStatusColorClasses = (status) => {
+    switch (status) {
+        case 'Completed':
+            return 'text-green-500 bg-green-100';
+        case 'In Progress':
+            return 'text-yellow-500 bg-yellow-100';
+        case 'Important':
+            return 'text-pink-500 bg-pink-100';
+        case 'Do It Now':
+            return 'text-red-800 bg-red-400';
+        default:
+            return 'text-gray-500 bg-gray-500';
+    }
+};
 
 export default function TaskDetails() {
     const { taskId } = useParams();
@@ -13,10 +27,12 @@ export default function TaskDetails() {
 
     const isOwner = userId === task._ownerId;
 
+    const statusColorClasses = getStatusColorClasses(task.status);
+
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
         <div className="relative flex flex-col items-start p-4 bg-white rounded-lg shadow-md w-1/2 max-h-screen overflow-y-auto">
-                <span className="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{task.status}</span>
+                <span className={`flex items-center h-6 px-3 text-xs font-semibold rounded-full ${statusColorClasses}`}>{task.status}</span>
                 <h3 className="mt-3 text-sm font-medium">{task.title}</h3>
                 <p className="mt-3 text-sm text-gray-800 w-auto font-medium">{task.description}</p>
             <div className="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
