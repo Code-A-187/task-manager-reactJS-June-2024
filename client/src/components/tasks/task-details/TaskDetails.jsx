@@ -1,18 +1,19 @@
 import { useParams } from "react-router-dom";
-
-import { useModalContext } from "../../../contexts/ModalContext"
 import { useGetOneTasks } from "../../../hooks/useTasks";
+import { useModalContext } from "../../../contexts/ModalContext"
+import Comments from "./comments/Comments";
+
 
 export default function TaskDetails() {
-    const { openModal } = useModalContext();
     const { taskId } = useParams();
     const [task] = useGetOneTasks(taskId);
-    
+    const { openModal } = useModalContext();
+
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
         <div className="relative flex flex-col items-start p-4 bg-white rounded-lg shadow-md w-1/2 max-h-screen overflow-y-auto">
                 <span className="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{task.status}</span>
-                <h4 className="mt-3 text-sm font-medium">{task.title}</h4>
+                <h3 className="mt-3 text-sm font-medium">{task.title}</h3>
                 <p className="mt-3 text-sm text-gray-800 w-auto font-medium">{task.description}</p>
             <div className="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                 <div className="flex items-center">
@@ -23,6 +24,7 @@ export default function TaskDetails() {
                     <span className="ml-1 leading-none">End date: {task.dueDate}</span>
                 </div>
             </div>
+
             <div className="flex mt-4">
                 <button 
                     className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
@@ -39,48 +41,9 @@ export default function TaskDetails() {
                     Delete
                 </button>
             </div>
-            <div className="mt-4 w-full">
-                <form>
-                    <textarea
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                        rows="3"
-                        placeholder="Add a comment..."
-                    />
-                    <div className="flex justify-end mt-2">
-                                <button 
-                                    type="submit" 
-                                    className="px-4 py-2 text-sm text-white bg-green-500 rounded hover:bg-green-600"
-                                >
-                                    Add Comment
-                                </button>
-                    </div>
-                </form>
 
-                <h5 className="text-sm font-semibold mt-4">Comments</h5>
-                <div className="flex flex-col">
-
-                        <div className="border rounded-md p-3 ml-3 my-3">
-                            <div className="flex gap-3 items-center">
-                                <h3 className="font-bold">
-                                    User name
-                                </h3>
-                            </div>
-                                <p className="text-gray-600 mt-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                </p>
-                            </div>
-                            <div className="border rounded-md p-3 ml-3 my-3">
-                            <div className="flex gap-3 items-center">
-                                <h3 className="font-bold">
-                                    User name
-                                </h3>
-                            </div>
-                            <p className="text-gray-600 mt-2">
-                                this is sample commnent
-                            </p>
-                            </div>
-                        </div>
-            </div>  
+            <Comments taskId={taskId} />
+            
         </div> 
     </div>
   )
