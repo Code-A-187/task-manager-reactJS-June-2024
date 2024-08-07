@@ -1,9 +1,26 @@
+import { useForm } from "../../../hooks/useForm";
 import Modal from "../modal/Modal";
-// import { useGetOneTasks } from "../../../hooks/useTasks";
+import { useGetOneTasks } from "../../../hooks/useTasks";
+import tasksAPI from "../../../api/tasks-api";
+
+const initialValues = {
+        title: '',
+        description: '',
+        status: '',
+        dueDate: ''
+}
+const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function EditTaskModal({ closeFn, open = false, taskId }) {
-    console.log(`EditTaskModal opened from Details with ID: ${taskId}`);
+    const [task, setGame] = useGetOneTasks(taskId);
 
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(Object.assign(initialValues, task), (values) => {
+        tasksAPI.
+    });
 
     return (
         <Modal open={open} closeFn={closeFn}>
