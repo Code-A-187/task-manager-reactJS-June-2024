@@ -8,7 +8,8 @@ const initialValues = {
 
 export default function Comments({ taskId }) {
     const createComment = useCreateComment();
-    const { isAuthenticated } = useAuthContext();
+    const { fullName } = useAuthContext();
+    const { isAuthenticated} = useAuthContext();
     const [ comments, setComments] = useGetAllComments(taskId);
 
     const {
@@ -18,7 +19,11 @@ export default function Comments({ taskId }) {
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(taskId, comment)
-            setComments(oldComments => [...oldComments, newComment])
+            const completeNewComment = {
+                ...newComment,
+                author: { fullName }
+            }
+            setComments(oldComments => [...oldComments, completeNewComment])
         } catch (err) {
             console.log(err.message);
         }
@@ -49,13 +54,12 @@ export default function Comments({ taskId }) {
             </form>
         )}
 
-        
         <h5 className="text-sm font-semibold mt-4">Comments</h5>
-            { comments.map (comment => (
+            { comments.slice().reverse().map (comment => (
                 <div key={comment._id}className="border rounded-md p-3 ml-3 my-3">
                     <div className="flex gap-3 items-center">
                         <h3 className="font-bold">
-                            {comment.fullName}
+                            {comment.author.fullName}
                         </h3>
                     </div>
                     <p className="text-gray-600 mt-2">
