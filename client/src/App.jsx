@@ -14,7 +14,7 @@ function App() {
 	<AuthContextProvider>
 		<Routes>
 			<Route path="/" element={<Layout />}>
-			<Route index element={<Home />} />
+			<Route index element={<Home /> } />
 			<Route path="/login" element={<UserLogin />} />
 			<Route path="/register" element={<UserRegister />} />
 			<Route path="/tasks/:taskId/details" element={ <TaskDetails /> } />

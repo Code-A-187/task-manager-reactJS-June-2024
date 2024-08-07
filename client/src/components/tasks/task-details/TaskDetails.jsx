@@ -2,12 +2,19 @@ import { useParams } from "react-router-dom";
 import { useGetOneTasks } from "../../../hooks/useTasks";
 import { useModalContext } from "../../../contexts/ModalContext"
 import Comments from "./comments/Comments";
+import { useAuthContext } from "../../../contexts/AuthContext";
 
 
 export default function TaskDetails() {
     const { taskId } = useParams();
     const [task] = useGetOneTasks(taskId);
     const { openModal } = useModalContext();
+    const { userId } = useAuthContext();
+
+    console.log("Task Data:", task);
+    console.log("User ID:", userId);
+
+    const isOwner = userId === task._ownerId;
 
   return (
     <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
@@ -25,22 +32,26 @@ export default function TaskDetails() {
                 </div>
             </div>
 
-            <div className="flex mt-4">
-                <button 
-                    className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
-                    data-modal="edit-task"
-                    onClick={openModal}
-                >
-                    Edit
-                </button>
-                <button 
-                    className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
-                    data-modal="delete-modal"
-                    onClick={openModal}
-                >
-                    Delete
-                </button>
-            </div>
+            
+                {isOwner && (
+                    <div className="flex mt-4">
+                    <button 
+                        className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
+                        data-modal="edit-task"
+                        onClick={openModal}
+                    >
+                        Edit
+                    </button>
+                    <button 
+                        className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
+                        data-modal="delete-modal"
+                        onClick={openModal}
+                    >
+                        Delete
+                    </button>
+                    </div>
+                )}
+            
 
             <Comments taskId={taskId} />
             

@@ -1366,7 +1366,35 @@
                 "dueDate": "29-07-2024",
                 "_createdOn": 1722526408964,
                 "_id": "ed68fbe5-0604-41b8-94cc-a15b2fd794e5"
+            },
+            "dcbe6262-400e-40dd-b23a-658feb2d7c76": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Preseed practice server",
+                "description": "Make preseeded data for the practice server -Comments, -Users, -Tasks",
+                "status": "Important",
+                "dueDate": "29-08-2024",
+                "_createdOn": 1723023296211,
+                "_id": "dcbe6262-400e-40dd-b23a-658feb2d7c76"
+            },
+            "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3":{
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Implement route guards for the private AND the public part",
+                "description": "Guest users shouldn‘t be able to access private pages, logged-in users shouldn‘t be able to see the login/register pages",
+                "status": "Important",
+                "dueDate": "08-08-2024",
+                "_createdOn": 1723023459196,
+                "_id": "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3"
+            },
+            "1c67ac80-1410-4c55-85ac-b49c2147b13b" :{
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Implement client-side routing",
+                "description": "Should make client-side routing to at least 5 pages (at least 2 with parameters)",
+                "status": "Completed",
+                "dueDate": "08-08-2024",
+                "_createdOn": 1723023783009,
+                "_id": "1c67ac80-1410-4c55-85ac-b49c2147b13b"
             }
+
 
         },
     };

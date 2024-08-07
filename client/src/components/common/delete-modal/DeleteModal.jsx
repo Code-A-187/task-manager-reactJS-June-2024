@@ -1,7 +1,6 @@
 import Modal from "../modal/Modal";
 
 export default function DeleteModal({ closeFn, open = false }) {
-
   return (
     <Modal open={open} closeFn={closeFn}>
         <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 relative">

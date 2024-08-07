@@ -37,8 +37,8 @@ export default function SideBar() {
                             </div>
                         </div> 
                     ) : (
-                        <Link to="/login" className="py-6">
-                            <p className="text-sm text-white text-center">Guest</p>
+                        <Link to="/" className="py-6">
+                            <p className="text-sm text-white text-center">You are Guest</p>
                         </Link>
                         
                     )

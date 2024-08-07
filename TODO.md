@@ -21,23 +21,39 @@ SoftUni React Course Project
 - [x] Preseed practice server
 ## 4. Page Implementations
 - [x] Task list
-- [ ] Details
+- [x] Details
   - [x] Details link
   - [x] Details route
   - [x] Api function - getOne
+  - [ ] Edit task modal
+    - [x] Wrapp modals
+    - [x] Modal close functionality
+    - [x] Close when click outside of modal
+    - [ ] Submit form
+    - [ ] Refresh state of page under modal
+  - [ ] Delete task modal
+    - [x] Wrapp modals
+    - [x] Modal close functionality
+    - [x] Close when click outside of modal
+    - [ ] Delete on server
+    - [ ] Refresh state of page under modal
 - [ ] Home - Last six tasks
-## 5. Comments (Advanced)
-- [ ] Create service for nested resource `comments`
-- [ ] Post comment to server
-- [ ] Read comments from server
-- [ ] Add comments in the component
-- [ ] Clear form
-## 6. API Hooks
+## 5. Modal Implementations
+  - [x] Modal manager
+  - [x] Main modal
+  - [x] Modal context implementation
+## 6. Comments (Advanced)
+- [x] Create service for nested resource `comments`
+- [x] Post comment to server
+- [x] Read comments from server
+- [x] Add comments in the component
+- [x] Clear form
+## 7. API Hooks
 - [x] Form Hook
 - [x] TaskAPI Hooks
-- [] Comment Hooks
+- [x] Comment Hooks
 - [x] Modal hooks
-## 7. Authentication
+## 8. Authentication
 - [x] Auth API
   - [x] Login
   - [x] Register
@@ -49,7 +65,7 @@ SoftUni React Course Project
   - [ ] Add form validation
 - [x] Logout
 - [ ] Authorized Requests
-## 8. UI Implementation 
+## 9. UI Implementation 
 - [ ] Dynamic navigation
 - [x] Create task
   - [ ] API function
@@ -57,6 +73,7 @@ SoftUni React Course Project
 - [ ] My tasks 
     - [ ] Latest tasks
     - [ ] Important tasks
+    - [ ] Do it now tasks
     ???
 ## Notes
   1. Latest Games

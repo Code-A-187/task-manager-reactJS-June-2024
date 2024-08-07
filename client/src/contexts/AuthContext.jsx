@@ -33,7 +33,7 @@ export function AuthContextProvider({ children }) {
     }
 
     const contextData = {
-        userId: authState?.userId,
+        userId: authState?._id,
         fullName: authState?.fullName,
         email:authState?.email,
         accessToken: authState?.accessToken,

@@ -19,10 +19,12 @@ export default function Comments({ taskId }) {
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(taskId, comment)
+            
             const completeNewComment = {
                 ...newComment,
                 author: { fullName }
             }
+
             setComments(oldComments => [...oldComments, completeNewComment])
         } catch (err) {
             console.log(err.message);
@@ -69,10 +71,6 @@ export default function Comments({ taskId }) {
                 ))  
             }
             {comments.length === 0 && <p>No comments</p>}
-            
-
-                
-
     </div>  
    );
 }
