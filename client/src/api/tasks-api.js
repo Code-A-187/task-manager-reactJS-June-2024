@@ -42,12 +42,17 @@ export const remove = (taskId) => request.del(`${BASE_URL}/${taskId}`)
 
 export const update = (taskId, gameData) => request.put(`${BASE_URL}/${taskId}`, gameData)
 
+export const getLatest =  async () => {
+    
+}
+
 const tasksAPI = {
     getAll,
     getOne,
     create,
     remove,
     update,
+    getLatest,
 };
 
 export default tasksAPI;
