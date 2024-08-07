@@ -96,6 +96,7 @@ const tasksAPI = {
     remove,
     update,
     getLatest,
+    getImportantTasks,
 };
 
 export default tasksAPI;
