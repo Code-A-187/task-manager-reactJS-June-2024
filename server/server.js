@@ -1345,7 +1345,7 @@
                 "title": "React API for SoftUni",
                 "description": "Create React API, that should have functionalities.",
                 "status": "Important",
-                "dueDate": "08-08-2024",
+                "dueDate": "2024-08-08",
                 "_createdOn": 1722526058259,
                 "_id": "e8740253-8c08-4c0b-b5c0-86c61495d658"
             },
@@ -1354,7 +1354,7 @@
                 "title": "Testing functionalities.",
                 "description": "Make Unitests for React API functionalities.",
                 "status": "Important",
-                "dueDate": "13-08-2024",
+                "dueDate": "2024-08-08",
                 "_createdOn": 1722526281373,
                 "_id": "4d43485c-2a1d-40cf-bcd6-63c4f1d8bdc0"
             },
@@ -1363,7 +1363,7 @@
                 "title": "JSX files and routes",
                 "description": "Make jsx files and routes for the React API task manager project",
                 "status": "Completed",
-                "dueDate": "29-07-2024",
+                "dueDate": "2024-07-29",
                 "_createdOn": 1722526408964,
                 "_id": "ed68fbe5-0604-41b8-94cc-a15b2fd794e5"
             },
@@ -1372,7 +1372,7 @@
                 "title": "Preseed practice server",
                 "description": "Make preseeded data for the practice server -Comments, -Users, -Tasks",
                 "status": "Important",
-                "dueDate": "29-08-2024",
+                "dueDate": "2024-08-29",
                 "_createdOn": 1723023296211,
                 "_id": "dcbe6262-400e-40dd-b23a-658feb2d7c76"
             },
@@ -1381,7 +1381,7 @@
                 "title": "Implement route guards for the private AND the public part",
                 "description": "Guest users shouldn‘t be able to access private pages, logged-in users shouldn‘t be able to see the login/register pages",
                 "status": "Important",
-                "dueDate": "08-08-2024",
+                "dueDate": "2024-08-08",
                 "_createdOn": 1723023459196,
                 "_id": "15b57d1f-f64b-4ca6-a7a9-5b30caf048c3"
             },
@@ -1390,7 +1390,7 @@
                 "title": "Implement client-side routing",
                 "description": "Should make client-side routing to at least 5 pages (at least 2 with parameters)",
                 "status": "Completed",
-                "dueDate": "08-08-2024",
+                "dueDate": "2024-06-07",
                 "_createdOn": 1723023783009,
                 "_id": "1c67ac80-1410-4c55-85ac-b49c2147b13b"
             },
