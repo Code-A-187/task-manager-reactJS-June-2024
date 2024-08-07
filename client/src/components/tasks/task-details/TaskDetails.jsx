@@ -31,20 +31,20 @@ export default function TaskDetails() {
 
             
                 {isOwner && (
-                    <div className="flex mt-4">
+                <div className="flex mt-4">
                     <button 
                         className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
                         data-modal="edit-task"
-                        data-task-id={taskId} // Add taskId here
-                        onClick={e => openModal(e)}
+                        data-task-id={taskId}
+                        onClick={openModal}
                     >
                         Edit
                     </button>
                     <button 
                         className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
                         data-modal="delete-modal"
-                        data-task-id={taskId} // Add taskId here
-                        onClick={e => openModal(e)}
+                        data-task-id={taskId}
+                        onClick={openModal}
                     >
                         Delete
                     </button>

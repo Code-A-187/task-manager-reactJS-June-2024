@@ -12,6 +12,7 @@ const initialValues = {
 const taskStatuses = ["Pending", "In Progress", "Important"];
 
 export default function CreateTaskModal({ closeFn, open = false }) {
+  console.log(`create modal is opened`);
     const createGame = useCreateTask();
 
     const createHandler = async (values) => {

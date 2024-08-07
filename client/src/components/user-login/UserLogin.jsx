@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../api/auth-api'
 import { useForm } from '../../hooks/useForm';
-import { useAuthContext } from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext'
 
 const initialValues = { email: '', password: ''}
 

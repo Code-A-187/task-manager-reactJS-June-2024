@@ -10,9 +10,9 @@ export default function ModalManager () {
   const { modal, modalProps, closeModal: closeFn,  } = useModalContext();
   return (
     <>
-      <CreateTaskModal closeFn={closeFn} open={modal === 'create-task'} />
-      <EditTaskModal closeFn={closeFn} open={modal === 'edit-task'} taskId={modalProps.taskId} />
-      <DeleteModal closeFn={closeFn} open={modal === 'delete-modal'} taskId={modalProps.taskId} />
+      {modal === 'create-task' && <CreateTaskModal closeFn={closeFn} open={modal === 'create-task'} />}
+      {modal === 'edit-task' &&<EditTaskModal closeFn={closeFn} open={modal === 'edit-task'} taskId={modalProps.taskId}/>}
+      {modal === 'delete-modal' && <DeleteModal closeFn={closeFn} open={modal === 'delete-modal'} taskId={modalProps.taskId}/>}
     </>
   );
 };
