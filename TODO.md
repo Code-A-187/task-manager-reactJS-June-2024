@@ -15,15 +15,15 @@ SoftUni React Course Project
 - [x] Add routes in App.jsx
 - [x] Add links in the navigation
 ## 3. Create Service Layer
-- [ ] Service layer architecture
+- [x] Service layer architecture
 - [x] Abstract requester
 - [x] Add tasks api
 - [x] Preseed practice server
 ## 4. Page Implementations
 - [x] Task list
 - [ ] Details
-  - [ ] Details link
-  - [ ] Details route
+  - [x] Details link
+  - [x] Details route
   - [x] Api function - getOne
 - [ ] Home - Last six tasks
 ## 5. Comments (Advanced)
@@ -35,7 +35,7 @@ SoftUni React Course Project
 ## 6. API Hooks
 - [x] Form Hook
 - [x] TaskAPI Hooks
-- [ ] Comment Hooks
+- [] Comment Hooks
 - [x] Modal hooks
 ## 7. Authentication
 - [x] Auth API
@@ -47,11 +47,11 @@ SoftUni React Course Project
 - [x] Login
 - [x] Register
   - [ ] Add form validation
-- [ ] Logout
+- [x] Logout
 - [ ] Authorized Requests
 ## 8. UI Implementation 
 - [ ] Dynamic navigation
-- [ ] Create task
+- [x] Create task
   - [ ] API function
   - [ ] Hook
 - [ ] My tasks 
