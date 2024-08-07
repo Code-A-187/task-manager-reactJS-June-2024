@@ -35,12 +35,12 @@ export default function TasklistItem({
             </svg>
             <span className="ml-1 leading-none" id="comments-number">4</span>
         </div>
-        <div className="flex items-center ml-4">
+        {/* <div className="flex items-center ml-4">
             <svg className="w-4 h-4 text-gray-300 fill-current"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clipRule="evenodd" />
             </svg>
             <span className="ml-1 leading-none">subs</span>
-        </div>
+        </div> */}
         <img className="w-6 h-6 ml-auto rounded-full" src=''/>
     </div>
     </div>

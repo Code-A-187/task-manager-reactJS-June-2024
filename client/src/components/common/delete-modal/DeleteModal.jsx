@@ -1,8 +1,23 @@
+import { useNavigate } from "react-router-dom";
+import tasksAPI from "../../../api/tasks-api";
 import Modal from "../modal/Modal";
 
 export default function DeleteModal({ closeFn, open = false, taskId }) {
-    
-  return (
+    console.log(taskId)
+    const navigate = useNavigate();
+
+    const taskDeleteHandler = async () => {
+        try {
+            await tasksAPI.remove(taskId)
+            navigate('/')
+            closeFn();
+        } catch (err) {
+            console.log(err.message)
+        }
+        
+    }
+
+return (
     <Modal open={open} closeFn={closeFn}>
         <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 relative">
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +50,7 @@ export default function DeleteModal({ closeFn, open = false, taskId }) {
                     <button 
                         type="button"
                         className="px-4 py-2 rounded-lg text-white text-sm tracking-wide bg-red-500 hover:bg-red-600 active:bg-red-500"
+                        onClick={taskDeleteHandler}
                     >
                         Delete
                     </button>

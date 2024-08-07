@@ -1,7 +1,7 @@
 import Modal from "../modal/Modal";
 import { useCreateTask } from "../../../hooks/useTasks";
 import { useForm } from "../../../hooks/useForm"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
         title: '',
@@ -13,7 +13,7 @@ const initialValues = {
 const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function CreateTaskModal({ closeFn, open = false }) {
-    const createGame = useCreateTask();
+    const createTask = useCreateTask();
     const navigate = useNavigate();
 
     const createHandler = async (values) => {
@@ -23,7 +23,7 @@ export default function CreateTaskModal({ closeFn, open = false }) {
             return;
           }
         try {
-          const newTask = await createGame(values);
+          const newTask = await createTask(values);
           alert("Task edited successfully!");
           navigate(`tasks/${newTask._id}/details`)
           closeFn();
