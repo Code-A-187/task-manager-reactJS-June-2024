@@ -35,7 +35,6 @@ function App() {
                         <Route path="/now-tasks" element={<DoItNowTasks />} />
                     </Route>
 
-                    {/* Catch-all for undefined routes */}
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>
