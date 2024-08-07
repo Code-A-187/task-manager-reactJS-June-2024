@@ -9,7 +9,7 @@ Users can
 	- register with Full name, e-mail, and password,
   	- login with e-mail and password,
    
-Guest User: If not signed in (GUEST) user can view last six tasks and their details and comments. Editing, Commenting and Deleting is not possible.
+Guest User: If not signed in (GUEST) user can view only last six tasks with their details and comments. Editing, Commenting and Deleting is not possible.
 
 Signed User: 
 - Can see their user data (Full Name and e-mail) on the side bar.
