@@ -9,7 +9,7 @@ Users can
 	- register with Full name, e-mail, and password,
   	- login with e-mail and password,
    
-Guest User: If not signed in (GUEST) user can view last six tasks and their details and comments. Editing, Commenting and Deleting is not possible.
+Guest User: If not signed in (GUEST) user can view only last six tasks with their details and comments. Editing, Commenting and Deleting is not possible.
 
 Signed User: 
 - Can see their user data (Full Name and e-mail) on the side bar.
@@ -30,25 +30,24 @@ STRARTING PROJECT
 Client and Server folders should be in same folder.
 Should use two separate terminals one for client and one for server.
 
-1. Starting client
-	- First in terminal of the root folder example: ...\task-manager-reactJS-June-2024-main\> cd client
-	- Second in terminal example: ...\task-manager-reactJS-June-2024-main\client> npm install
- 	- Third in terminal example: ...\task-manager-reactJS-June-2024-main\client> npm run dev
-	- Client is redy to be used on http://localhost:5173/
-	
-2. Starting server
-	- First in terminal of the root folder example: ...\task-manager-reactJS-June-2024-main\>cd server
-	- Second in terminal example: ...\task-manager-reactJS-June-2024-main\server>node server.js
+1. Starting server
+	- First step: in terminal of the root folder example: ...\task-manager-reactJS-June-2024-main\>cd server
+	- Second step in terminal example: ...\task-manager-reactJS-June-2024-main\server>node server.js
 	- Should recieve
 	     	Server started on port 3030. You can make requests to http://localhost:3030/
 		Admin panel located at http://localhost:3030/admin
 	- Server is up and runing waiting for requests from Task Manager
-   	
-   	
+
+2. Starting client
+	- First step: in terminal of the root folder example: ...\task-manager-reactJS-June-2024-main\> cd client
+	- Second step: in terminal example: ...\task-manager-reactJS-June-2024-main\client> npm install
+ 	- Third step: in terminal example: ...\task-manager-reactJS-June-2024-main\client> npm run dev
+	- Client is up and ready to be used on http://localhost:5173/
+
  There is preseeded data in server and there are Users that can be Signed in righaway:
- 	peter@abv.bg: 123456
-	george@abv.bg: 123456
-	admin@abv.bg: admin
+ 	- peter@abv.bg: 123456,
+	- george@abv.bg: 123456,
+	- admin@abv.bg: admin,
  
 
 
