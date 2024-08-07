@@ -11,9 +11,6 @@ export default function TaskDetails() {
     const { openModal } = useModalContext();
     const { userId } = useAuthContext();
 
-    console.log("Task Data:", task);
-    console.log("User ID:", userId);
-
     const isOwner = userId === task._ownerId;
 
   return (
@@ -38,14 +35,16 @@ export default function TaskDetails() {
                     <button 
                         className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
                         data-modal="edit-task"
-                        onClick={openModal}
+                        data-task-id={taskId} // Add taskId here
+                        onClick={e => openModal(e)}
                     >
                         Edit
                     </button>
                     <button 
                         className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
                         data-modal="delete-modal"
-                        onClick={openModal}
+                        data-task-id={taskId} // Add taskId here
+                        onClick={e => openModal(e)}
                     >
                         Delete
                     </button>

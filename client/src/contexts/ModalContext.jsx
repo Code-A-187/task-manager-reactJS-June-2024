@@ -4,23 +4,29 @@ const ModalContext = createContext();
 
 export function ModalContextProvider({ children }){
     const [modal, setModal] = useState(false);
+    const [modalProps, setModalProps] = useState({});
   
-    const openModal = event => {
+    const openModal = (event) => {
       event.preventDefault();
       const {
         target: {
-          dataset: { modal }
+          dataset: { modal, taskId }
         }
       } = event;
-      if (modal) setModal(modal);
+      if (modal) 
+        setModal(modal);
+      if (taskId) {
+        setModalProps({ taskId });
+    }
     };
   
     const closeModal = () => {
       setModal('');
+      setModalProps({});
     };
 
     return (
-        <ModalContext.Provider value={{ modal, openModal, closeModal }}>
+        <ModalContext.Provider value={{ modal, modalProps, openModal, closeModal }}>
             {children}
         </ModalContext.Provider>
     );
