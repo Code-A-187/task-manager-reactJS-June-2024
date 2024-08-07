@@ -2,6 +2,7 @@ import { useForm } from "../../../hooks/useForm";
 import Modal from "../modal/Modal";
 import { useGetOneTasks } from "../../../hooks/useTasks";
 import tasksAPI from "../../../api/tasks-api";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
         title: '',
@@ -13,13 +14,18 @@ const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function EditTaskModal({ closeFn, open = false, taskId }) {
     const [task, setGame] = useGetOneTasks(taskId);
+    const navigate = useNavigate()
 
     const {
         values,
         changeHandler,
         submitHandler,
-    } = useForm(Object.assign(initialValues, task), (values) => {
-        tasksAPI.
+    } = useForm(Object.assign(initialValues, task), async (values) => {
+        await tasksAPI.update(taskId, values)
+        
+        navigate(0)
+        closeFn();
+        
     });
 
     return (
