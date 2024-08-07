@@ -46,9 +46,9 @@ Should use two separate terminals one for client and one for server.
    	
    	
  There is preseeded data in server and there are Users that can be Signed in righaway:
- 	peter@abv.bg: 123456
-	george@abv.bg: 123456
-	admin@abv.bg: admin
+ 	peter@abv.bg: 123456,
+	george@abv.bg: 123456,
+	admin@abv.bg: admin,
  
 
 
