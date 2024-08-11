@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
 
-export function useForm(initialValues, submitCallback) {
-
+export function useForm(initialValues, submitCallback, validate) {
     const [values, setValues] = useState(initialValues);
-    
+    const [errors, setErrors] = useState({});
+
     useEffect(() => {
         setValues(initialValues)
     }, [initialValues])
@@ -16,10 +16,22 @@ export function useForm(initialValues, submitCallback) {
         }))
     };
 
+    const validateForm = () => {
+        const validationErrors = validate(values);
+        setErrors(validationErrors);
+
+        return Object.keys(validationErrors).length === 0;
+    };
+
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        await submitCallback(values);
+        const isValid = validateForm();
+        if (isValid) {
+            await submitCallback(values);
+        }
+        
         
         setValues(initialValues);
         
@@ -29,5 +41,6 @@ export function useForm(initialValues, submitCallback) {
         values,
         changeHandler,
         submitHandler,
+        errors,
     };
 }
