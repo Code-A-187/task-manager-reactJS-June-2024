@@ -1,0 +1,16 @@
+.error {
+    color: #e74c3c; /* Red color */
+    font-size: 0.875rem; /* Slightly smaller font size */
+    margin-top: 0.25rem; /* Space between input and error */
+}
+
+input.error-input {
+    border-color: #e74c3c; /* Red border for invalid input */
+    background-color: #fce4e4; /* Light red background for invalid input */
+}
+
+.error-icon {
+    color: #e74c3c;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+}

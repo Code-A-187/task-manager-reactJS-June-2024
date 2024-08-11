@@ -3,12 +3,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../api/auth-api'
 import { useForm } from '../../hooks/useForm';
 import { useAuthContext } from '../../contexts/AuthContext'
+import { validateLogin } from '../../api/valid-api';
+import { useErrorModal } from '../../hooks/useErrorModal';
+
+import './UserLogin.error.css';
+
 
 const initialValues = { email: '', password: ''}
 
 export default function UserLogin() {
     const navigate = useNavigate();
     const { changeAuthState } = useAuthContext()
+    const { showErrorModal, ErrorModalComponent } = useErrorModal();
 
     const loginHandler = async ({ email, password }) => {
     try {
@@ -18,17 +24,29 @@ export default function UserLogin() {
 
         navigate('/')
     } catch (err) {
-        console.error('Login failed', err);
-    }
-    };
+      let errorMessage = 'An unexpected error occurred. Please try again later.';
 
-    const {values, changeHandler, submitHandler} = useForm (initialValues, loginHandler)
+        // Check if the error response exists and has the expected format
+        if (err.response && err.response.data && err.response.data.message) {
+            errorMessage = err.response.data.message;
+        }
+        
+        showErrorModal(errorMessage);
+        console.error('Login failed', err);  // For debugging purposes
+    }
+};
+
+    const {values, changeHandler, submitHandler, errors} = useForm (initialValues, loginHandler, validateLogin)
+
+
+    
 
   return (
-    <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
-      <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
+      <>
+        <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
+        <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
         <Link to="/login">
-          <img src="" alt="Task Manager" className='w-40 md:mb-4 mb-12' />
+          <img src="/images/task-nest-logo.jpg" alt="Task Manager" className='w-40 md:mb-4 mb-12' />
         </Link>
 
         <div className="grid md:grid-cols-2 items-center gap-8">
@@ -53,6 +71,11 @@ export default function UserLogin() {
                   required 
                   placeholder="Enter email" 
                 />
+                {errors.email && (
+                    <p className="error">
+                        <span className="error-icon">⚠️</span> {errors.email}
+                    </p>
+                )}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                   <defs>
                     <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -79,6 +102,11 @@ export default function UserLogin() {
                     onChange={changeHandler}
                     required  
                     placeholder="Enter password" />
+                  {errors.password && (
+                    <p className="error">
+                        <span className="error-icon">⚠️</span> {errors.password}
+                    </p>
+                  )}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
                   <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                 </svg>
@@ -95,5 +123,8 @@ export default function UserLogin() {
         </div>
       </div>
     </div>
+    <ErrorModalComponent />
+  </>
+    
     );
 }
