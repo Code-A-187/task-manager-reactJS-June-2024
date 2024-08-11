@@ -1,0 +1,16 @@
+.error {
+    color: #e74c3c;
+    font-size: 0.875rem; 
+    margin-top: 0.25rem; 
+}
+
+input.error-input {
+    border-color: #e74c3c; 
+    background-color: #fce4e4; 
+}
+
+.error-icon {
+    color: #e74c3c;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+}
