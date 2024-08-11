@@ -24,19 +24,23 @@ export default function UserLogin() {
 
         navigate('/')
     } catch (err) {
+      // Log the full error object for debugging
+      console.error('Login failed', err);
+
+      // Default error message
       let errorMessage = 'An unexpected error occurred. Please try again later.';
 
-        // Check if the error response exists and has the expected format
-        if (err.response && err.response.data && err.response.data.message) {
-            errorMessage = err.response.data.message;
-        }
-        
-        showErrorModal(errorMessage);
-        console.error('Login failed', err);  // For debugging purposes
-    }
-};
+      // Check if error is an instance of Error
+      if (err instanceof Error) {
+          errorMessage = err.message;
+      }
 
-    const {values, changeHandler, submitHandler, errors} = useForm (initialValues, loginHandler, validateLogin)
+      // Display the error message in the modal
+      showErrorModal(errorMessage);
+    }
+  };
+
+const {values, changeHandler, submitHandler, errors} = useForm (initialValues, loginHandler, validateLogin)
 
 
     
@@ -126,5 +130,5 @@ export default function UserLogin() {
     <ErrorModalComponent />
   </>
     
-    );
+    );  
 }
