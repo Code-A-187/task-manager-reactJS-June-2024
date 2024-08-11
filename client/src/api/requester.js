@@ -29,14 +29,12 @@ async function requester(method, url, data) {
     try {
         const response = await fetch(url, options);
 
-        
         if (response.status === 204) {
-            return;
+            return; // No content, return nothing
         }
 
-        
         const contentType = response.headers.get('content-type');
-        
+
         let result;
         if (contentType && contentType.includes('application/json')) {
             result = await response.json();
@@ -45,17 +43,20 @@ async function requester(method, url, data) {
             throw new Error(`Unexpected content type: ${contentType}, Response: ${text}`);
         }
 
-        
         if (!response.ok) {
-            throw result;
+            // Check if the error is a JSON object and has a `message` property
+            const error = new Error(result.message || 'Request failed');
+            error.response = result;
+            throw error;
         }
 
         return result;
-        
-        
 
     } catch (error) {
+        // Log error for debugging
         console.error('Request failed:', error);
+
+        // Rethrow the error to be caught by the caller
         throw error;
     }
 }
