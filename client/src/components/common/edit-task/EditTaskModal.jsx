@@ -4,6 +4,7 @@ import { useGetOneTasks } from "../../../hooks/useTasks";
 import tasksAPI from "../../../api/tasks-api";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
+import { validateTaskForm } from "../../../api/valid-api";
 
 const initialValues = {
         title: '',
@@ -14,7 +15,7 @@ const initialValues = {
 const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function EditTaskModal({ closeFn, open = false, taskId }) {
-    const [task, setGame] = useGetOneTasks(taskId);
+    const [task, setTask] = useGetOneTasks(taskId);
     const navigate = useNavigate()
     const initialFormValues = useMemo(() => Object.assign({}, initialValues, task), [task]);
     
@@ -22,12 +23,13 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
         values,
         changeHandler,
         submitHandler,
+        errors,
     } = useForm(initialFormValues, async (values) => {
         await tasksAPI.update(taskId, values)
         navigate(0)
         closeFn();
         
-    });
+    }, validateTaskForm);
 
     return (
         <Modal open={open} closeFn={closeFn}>
@@ -57,6 +59,7 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
                     onChange={changeHandler}
                     required
                   />
+                  {errors.title && <p className="error">{errors.title}</p>}
                 </div>
     
                 <div>
@@ -70,6 +73,7 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
                     onChange={changeHandler}
                     required
                   ></textarea>
+                  {errors.title && <p className="error">{errors.description}</p>}
                 </div>
     
                 <div>
@@ -88,7 +92,7 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
                 </div>
     
                 <div>
-                  <label className="text-gray-800 text-sm mb-2 block">Due Date</label>
+                  <label className="text-gray-800 text-sm mb-2 block">Due Date
                   <input
                     className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg"
                     type="date"
@@ -97,6 +101,9 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
                     onChange={changeHandler}
                     required
                   />
+                  </label>
+                  
+                  {errors.title && <p className="error">{errors.dueDate}</p>}
                 </div>
     
                 <div className="flex justify-end gap-4 !mt-8">
