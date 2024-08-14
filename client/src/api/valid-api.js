@@ -67,3 +67,17 @@ export function validateTaskForm(values) {
     return errors;
 }
 
+export function validateCommentForm(values) {
+    const errors = {};
+
+    // Validate Comment
+    if (!values.comment) {
+        errors.comment = 'Comment is required';
+    } else if (values.comment.length < 5) {
+        errors.comment = 'Comment must be at least 5 characters long';
+    } else if (values.comment.length > 200) {
+        errors.comment = 'Comment cannot exceed 200 characters';
+    }
+
+    return errors;
+}

@@ -1,6 +1,7 @@
 import { useForm } from "../../../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../../../hooks/useComments";
 import { useAuthContext } from "../../../../contexts/AuthContext";
+import { validateCommentForm } from "../../../../api/valid-api";
 
 const initialValues = {
     comment: '',
@@ -16,6 +17,7 @@ export default function Comments({ taskId }) {
         changeHandler,
         submitHandler,
         values,
+        errors,
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(taskId, comment)
@@ -30,7 +32,7 @@ export default function Comments({ taskId }) {
             console.log(err.message);
         }
         
-    })
+    }, validateCommentForm)
     
   return (
     <div className="mt-4 w-full">
@@ -53,6 +55,7 @@ export default function Comments({ taskId }) {
                                 Add Comment
                             </button>
                 </div>
+                {errors.comment && <p className="error">{errors.comment}</p>}
             </form>
         )}
 
