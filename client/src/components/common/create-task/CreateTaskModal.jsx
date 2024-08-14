@@ -2,6 +2,7 @@ import Modal from "../modal/Modal";
 import { useCreateTask } from "../../../hooks/useTasks";
 import { useForm } from "../../../hooks/useForm"
 import { useNavigate } from "react-router-dom";
+import { validateTaskForm } from "../../../api/valid-api";
 
 const initialValues = {
         title: '',
@@ -24,7 +25,7 @@ export default function CreateTaskModal({ closeFn, open = false }) {
           }
         try {
           const newTask = await createTask(values);
-          alert("Task edited successfully!");
+          alert("Task created successfully!");
           navigate(`tasks/${newTask._id}/details`)
           closeFn();
         } catch (error) {
@@ -37,8 +38,9 @@ export default function CreateTaskModal({ closeFn, open = false }) {
     const { 
         values, 
         changeHandler, 
-        submitHandler 
-    } = useForm(initialValues, createHandler);
+        submitHandler, 
+        errors,
+    } = useForm(initialValues, createHandler, validateTaskForm);
   
   
     return (
@@ -59,7 +61,8 @@ export default function CreateTaskModal({ closeFn, open = false }) {
     
               <form className="space-y-4 mt-8" onSubmit={submitHandler}>
                 <div>
-                  <label className="text-gray-800 text-sm mb-2 block">Task title</label>
+                  <label className="text-gray-800 text-sm mb-2 block">Task title
+                  </label>
                   <input
                     className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg"
                     type="text"
@@ -69,10 +72,12 @@ export default function CreateTaskModal({ closeFn, open = false }) {
                     onChange={changeHandler}
                     required
                   />
+                  {errors.title && <p className="error">{errors.title}</p>}
                 </div>
     
                 <div>
-                  <label className="text-gray-800 text-sm mb-2 block">Task description</label>
+                  <label className="text-gray-800 text-sm mb-2 block">Task description
+                  </label>
                   <textarea
                     className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg"
                     rows="3"
@@ -82,6 +87,7 @@ export default function CreateTaskModal({ closeFn, open = false }) {
                     onChange={changeHandler}
                     required
                   ></textarea>
+                  {errors.title && <p className="error">{errors.description}</p>}
                 </div>
     
                 <div>
@@ -100,7 +106,8 @@ export default function CreateTaskModal({ closeFn, open = false }) {
                 </div>
     
                 <div>
-                  <label className="text-gray-800 text-sm mb-2 block">Due Date</label>
+                  <label className="text-gray-800 text-sm mb-2 block">Due Date
+                  </label>
                   <input
                     className="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg"
                     type="date"
@@ -109,6 +116,7 @@ export default function CreateTaskModal({ closeFn, open = false }) {
                     onChange={changeHandler}
                     required
                   />
+                  {errors.title && <p className="error">{errors.dueDate}</p>}
                 </div>
     
                 <div className="flex justify-end gap-4 !mt-8">
@@ -129,5 +137,5 @@ export default function CreateTaskModal({ closeFn, open = false }) {
               </form>
             </div>
         </Modal>
-      );
-    }
+  );
+}
