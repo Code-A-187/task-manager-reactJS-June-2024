@@ -29,14 +29,14 @@ export function validateRegister(values) {
 
     if (!values.email){
         errors.email = 'Email is required';
-    } else if (!/\S+@\S+\+/.test(values.email)) {
+    } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
         errors.email = 'Email address is invalid'
     }
 
     if (!values.password) {
         errors.password = 'Password is required';
-    }   else if (values.password.length < 6) {
-        errors.passsword = 'Password must be at least 6 characters long'
+    }   else if (values.password.length < 5) {
+        errors.passsword = 'Password must be at least 5 characters long'
     }
 
     return errors;

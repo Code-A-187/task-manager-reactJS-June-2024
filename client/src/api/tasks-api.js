@@ -26,6 +26,8 @@ export const getLatest = async () => {
             .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
             .join('&');
 
+        console.log(queryString)
+
         const result = await request.get(`${BASE_URL}?${queryString}`);
         
         
@@ -40,20 +42,45 @@ export const getLatest = async () => {
 };
 
 
-export const getImportantTasks = async () => {
+export const getAllImportantTasks = async () => {
     try {
-        const params = {
-            status: 'Important'
-        };
+        const params = new URLSearchParams({
+            where: `status="Important"`,
+        });
 
-        const queryString = Object.keys(params)
-            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-            .join('&');
+        const queryString = params.toString();
 
-        const result = await request.get(`${BASE_URL}?${queryString}`);
-        const importantTasks = Object.values(result);
+    
+        const result = await request.get(`${BASE_URL}/tasks?${queryString}`);
 
-        return importantTasks; 
+    
+        const latestTasks = Object.values(result);
+
+    
+        return latestTasks;
+
+    } catch (err) {
+        console.error('Failed to fetch important tasks:', err);
+        throw new Error('Unable to fetch important tasks');
+    }
+};
+
+export const getAllCompletedTasks = async () => {
+    try {
+        const params = new URLSearchParams({
+            where: `status="Completed"`,
+        });
+
+        const queryString = params.toString();
+
+    
+        const result = await request.get(`${BASE_URL}/tasks?${queryString}`);
+
+    
+        const latestTasks = Object.values(result);
+
+    
+        return latestTasks;
 
     } catch (err) {
         console.error('Failed to fetch important tasks:', err);
@@ -96,7 +123,7 @@ const tasksAPI = {
     remove,
     update,
     getLatest,
-    getImportantTasks,
+    getAllImportantTasks,
 };
 
 export default tasksAPI;

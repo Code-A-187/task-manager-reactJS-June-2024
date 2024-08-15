@@ -52,7 +52,7 @@ export function useGetImportantTasks() {
     useEffect(() => {
         (async () => {
             try {
-                const result = await tasksAPI.getImportantTasks();
+                const result = await tasksAPI.getAllImportantTasks();
                 setTasks(result);
             } catch (err) {
                 setError('Failed to fetch latest tasks. Please try again later.');
