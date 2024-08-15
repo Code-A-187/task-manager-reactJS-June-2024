@@ -26,7 +26,7 @@ Loged in user can't load to /login or /register page from the nav bar.
 
 Guests cant't load all private pages that are available for Loged in users.
 
-STRARTING PROJECT
+STRARTING PROJECT:
 Client and Server folders should be in same folder.
 Should use two separate terminals one for client and one for server.
 
