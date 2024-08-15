@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import tasksAPI from "../api/tasks-api";
 
 export function useGetAllTasks () {
@@ -131,7 +131,28 @@ export function useGetOneTasks(taskId) {
 }
 
 export function useCreateTask () {
-    const taskCreateHandler = (taskData) => tasksAPI.create(taskData);
+    const taskCreateHandler = useCallback(async (taskData) => {
+        
+        const dataWithTimestamp = {
+            ...taskData,
+            dueDate: new Date(taskData.dueDate).getTime(),
+        };
+
+        try {
+            const response = await tasksAPI.create(dataWithTimestamp);
+
+            if (response.ok) {
+                console.log('Task created successfully');
+                return await response.json();
+            } else {
+                const error = await response.json();
+                throw new Error(error.message || 'Failed to create task');
+            }
+        } catch (error) {
+            console.error('Error creating task:', error);
+            throw error;
+        }
+    }, []);
     
     return taskCreateHandler;
 }

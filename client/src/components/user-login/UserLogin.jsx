@@ -49,12 +49,15 @@ const {values, changeHandler, submitHandler, errors} = useForm (initialValues, l
       <>
         <div className="font-[sans-serif] bg-white flex items-center justify-center md:h-screen p-4">
         <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
-        <Link to="/login">
-          <img src="/images/task-nest-logo.jpg" alt="Task Manager" className='w-40 md:mb-4 mb-12' />
-        </Link>
-
         <div className="grid md:grid-cols-2 items-center gap-8">
           <div className="max-md:order-1 lg:min-w-[450px]">
+          <Link to="/login" className="inline-block">
+          <img 
+              src="images/main_logo.png" 
+              alt="Task Manager" 
+              className='w-40' 
+          />
+        </Link>
             <img src="https://readymadeui.com/signin-image.webp" className="lg:w-11/12 w-full object-cover" alt="login-image" />
           </div>
           <form className="md:max-w-md w-full mx-auto" onSubmit={submitHandler}>

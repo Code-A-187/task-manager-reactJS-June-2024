@@ -32,7 +32,6 @@ export function useForm(initialValues, submitCallback, validate) {
             await submitCallback(values);
         }
         
-        
         setValues(initialValues);
         
     };

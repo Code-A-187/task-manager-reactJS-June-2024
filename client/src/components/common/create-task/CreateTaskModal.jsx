@@ -18,7 +18,6 @@ export default function CreateTaskModal({ closeFn, open = false }) {
     const navigate = useNavigate();
 
     const createHandler = async (values) => {
-
         if (values.status && !taskStatuses.includes(values.status)) {
             alert("Invalid status");
             return;

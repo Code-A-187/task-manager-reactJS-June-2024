@@ -19,9 +19,13 @@ export default function SideBar() {
 
   return (
     <nav className="bg-[#121e31] h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] tracking-wide overflow-auto z-40">
-            <Link to="/" className="py-6">
-                <img src="" alt="Task Manager" className='w-36' />
-            </Link>
+                <Link to="/" className="flex items-start">
+                    <img 
+                        src="/images/header_logo_wg.png" 
+                        alt="Task Manager" 
+                        className='w-40 h-auto object-contain' 
+                    />
+                </Link>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 py-6">
                     

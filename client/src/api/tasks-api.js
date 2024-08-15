@@ -22,11 +22,7 @@ export const getLatest = async () => {
             pageSize: 6,
         });
 
-        const queryString = Object.keys(params)
-            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-            .join('&');
-
-        console.log(queryString)
+        const queryString = params.toString().replace(/\+/g, '%20');
 
         const result = await request.get(`${BASE_URL}?${queryString}`);
         

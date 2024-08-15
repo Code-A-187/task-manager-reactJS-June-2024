@@ -27,7 +27,6 @@ function App() {
                     </Route>
                     <Route path="/tasks/:taskId/details" element={<TaskDetails />} />
                     <Route element={<PrivateGuard />}>
-                        <Route path="/tasks/:taskId/details" element={<TaskDetails />} />
                         <Route path="/all-tasks" element={<AllTasks />} />
                         <Route path="/important-tasks" element={<ImportantTasks />} />
                         <Route path="/completed-tasks" element={<CompletedTasks />} />
