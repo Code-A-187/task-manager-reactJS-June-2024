@@ -1,5 +1,5 @@
 import Modal from "../modal/Modal";
-import { useCreateTask } from "../../../hooks/useTasks";
+import { useCreateTasks } from "../../../hooks/useTasks";
 import { useForm } from "../../../hooks/useForm"
 import { useNavigate } from "react-router-dom";
 import { validateTaskForm } from "../../../api/valid-api";
@@ -14,7 +14,7 @@ const initialValues = {
 const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function CreateTaskModal({ closeFn, open = false }) {
-    const createTask = useCreateTask();
+    const createTask = useCreateTasks();
     const navigate = useNavigate();
 
     const createHandler = async (values) => {

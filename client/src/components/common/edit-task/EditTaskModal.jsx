@@ -1,7 +1,6 @@
 import { useForm } from "../../../hooks/useForm";
 import Modal from "../modal/Modal";
-import { useGetOneTasks } from "../../../hooks/useTasks";
-import tasksAPI from "../../../api/tasks-api";
+import { useGetOneTasks, useUpdateTasks } from "../../../hooks/useTasks";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import { validateTaskForm } from "../../../api/valid-api";
@@ -15,28 +14,32 @@ const initialValues = {
 const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
 export default function EditTaskModal({ closeFn, open = false, taskId }) {
-    const [task, setTask] = useGetOneTasks(taskId);
-    const navigate = useNavigate()
-    const initialFormValues = useMemo(() => {
+  const [task, setTask] = useGetOneTasks(taskId);
+  const navigate = useNavigate();
+  const updateTask = useUpdateTasks();
 
-      const formattedTask = task ? {
+  const initialFormValues = useMemo(() => {
+    const formattedTask = task
+      ? {
           ...task,
           dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : ''
-      } : initialValues;
-      return formattedTask;
+        }
+      : initialValues;
+    return formattedTask;
   }, [task]);
-    
-    const {
-        values,
-        changeHandler,
-        submitHandler,
-        errors,
-    } = useForm(initialFormValues, async (values) => {
-        await tasksAPI.update(taskId, values)
-        navigate(0)
-        closeFn();
-        
-    }, validateTaskForm);
+
+
+  const {
+    values,
+    changeHandler,
+    submitHandler,
+    errors
+  } = useForm(initialFormValues, async (values) => {
+
+    await updateTask(taskId, values);
+    navigate(0);
+    closeFn();
+  }, validateTaskForm);
 
     return (
         <Modal open={open} closeFn={closeFn}>

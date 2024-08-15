@@ -130,7 +130,7 @@ export function useGetOneTasks(taskId) {
     ]
 }
 
-export function useCreateTask () {
+export function useCreateTasks () {
     const taskCreateHandler = useCallback(async (taskData) => {
         
         const dataWithTimestamp = {
@@ -155,4 +155,32 @@ export function useCreateTask () {
     }, []);
     
     return taskCreateHandler;
+}
+
+
+export function useUpdateTasks() {
+
+    const taskUpdateHandler = useCallback(async (taskId, taskData) => {
+        const dataWithTimestamp = {
+            ...taskData,
+            dueDate: new Date(taskData.dueDate).getTime(),
+        };
+
+        try {
+            const response = await tasksAPI.update(taskId, dataWithTimestamp);
+
+            if (response.ok) {
+                console.log('Task updated successfully');
+                return await response.json();
+            } else {
+                const error = await response.json();
+                throw new Error(error.message || 'Failed to update task');
+            }
+        } catch (error) {
+            console.error('Error updating task:', error);
+            throw error;
+        }
+    }, []);
+    
+    return taskUpdateHandler;
 }
