@@ -17,7 +17,14 @@ const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 export default function EditTaskModal({ closeFn, open = false, taskId }) {
     const [task, setTask] = useGetOneTasks(taskId);
     const navigate = useNavigate()
-    const initialFormValues = useMemo(() => Object.assign({}, initialValues, task), [task]);
+    const initialFormValues = useMemo(() => {
+
+      const formattedTask = task ? {
+          ...task,
+          dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : ''
+      } : initialValues;
+      return formattedTask;
+  }, [task]);
     
     const {
         values,
