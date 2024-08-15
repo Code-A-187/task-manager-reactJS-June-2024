@@ -1,9 +1,10 @@
+import { useGetDoItNowTasks } from "../../../hooks/useTasks";
 import TaskListItem from "../task-list-item/TaskListElement";
-import { useGetImportantTasks } from "../../../hooks/useTasks";
+
 
 export default function DoItNowTasks() {
 
-    const { tasks, loading, error } = useGetImportantTasks();
+    const { tasks, loading, error } = useGetDoItNowTasks();
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p className="error-message">{error}</p>;
