@@ -9,7 +9,7 @@ const initialValues = {
         title: '',
         description: '',
         status: '',
-        dueDate: ''
+        dueDate: '',
 }
 const taskStatuses = ["Completed", "In Progress", "Important", "Do It Now"];
 
@@ -28,18 +28,22 @@ export default function EditTaskModal({ closeFn, open = false, taskId }) {
     return formattedTask;
   }, [task]);
 
+  const editHandler =  async (values) => {
+      try {
+      await updateTask(taskId, values);
+      navigate(0);
+      closeFn();
+    } catch (error) {
+      console.error('Failed to update the task:', error.message);
+    }
+  }
 
   const {
     values,
     changeHandler,
     submitHandler,
     errors
-  } = useForm(initialFormValues, async (values) => {
-
-    await updateTask(taskId, values);
-    navigate(0);
-    closeFn();
-  }, validateTaskForm);
+  } = useForm(initialFormValues, editHandler, validateTaskForm);
 
     return (
         <Modal open={open} closeFn={closeFn}>

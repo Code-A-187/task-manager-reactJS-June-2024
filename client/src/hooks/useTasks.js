@@ -138,20 +138,9 @@ export function useCreateTasks () {
             dueDate: new Date(taskData.dueDate).getTime(),
         };
 
-        try {
-            const response = await tasksAPI.create(dataWithTimestamp);
-
-            if (response.ok) {
-                console.log('Task created successfully');
-                return await response.json();
-            } else {
-                const error = await response.json();
-                throw new Error(error.message || 'Failed to create task');
-            }
-        } catch (error) {
-            console.error('Error creating task:', error);
-            throw error;
-        }
+        const response = await tasksAPI.create(dataWithTimestamp);
+        console.log(response)
+            
     }, []);
     
     return taskCreateHandler;
@@ -159,28 +148,17 @@ export function useCreateTasks () {
 
 
 export function useUpdateTasks() {
-
     const taskUpdateHandler = useCallback(async (taskId, taskData) => {
-        const dataWithTimestamp = {
-            ...taskData,
-            dueDate: new Date(taskData.dueDate).getTime(),
-        };
+      const dataWithTimestamp = {
+        ...taskData,
+        dueDate: new Date(taskData.dueDate).getTime(),
+      };
 
-        try {
-            const response = await tasksAPI.update(taskId, dataWithTimestamp);
 
-            if (response.ok) {
-                console.log('Task updated successfully');
-                return await response.json();
-            } else {
-                const error = await response.json();
-                throw new Error(error.message || 'Failed to update task');
-            }
-        } catch (error) {
-            console.error('Error updating task:', error);
-            throw error;
-        }
+        const response = await tasksAPI.update(taskId, dataWithTimestamp);
+  
+        console.log(response)
     }, []);
-    
+  
     return taskUpdateHandler;
-}
+  }
