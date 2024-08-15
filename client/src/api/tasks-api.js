@@ -88,6 +88,28 @@ export const getAllCompletedTasks = async () => {
     }
 };
 
+export const getAllDoItNowTasks = async () => {
+    try {
+        const params = new URLSearchParams({
+            where: `status="Do It Now"`,
+        });
+
+        const queryString = params.toString().replace(/\+/g, '%20');
+    
+        const result = await request.get(`${BASE_URL}/tasks?${queryString}`);
+
+    
+        const latestTasks = Object.values(result);
+
+    
+        return latestTasks;
+
+    } catch (err) {
+        console.error('Failed to fetch important tasks:', err);
+        throw new Error('Unable to fetch important tasks');
+    }
+};
+
 export const getOne = async (taskId) => {
     try {
 
@@ -124,6 +146,8 @@ const tasksAPI = {
     update,
     getLatest,
     getAllImportantTasks,
+    getAllCompletedTasks,
+    getAllDoItNowTasks,
 };
 
 export default tasksAPI;

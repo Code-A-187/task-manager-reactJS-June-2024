@@ -67,6 +67,51 @@ export function useGetImportantTasks() {
 }
 
 
+export function useGetCompletedTasks() {
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await tasksAPI.getAllCompletedTasks();
+                setTasks(result);
+            } catch (err) {
+                setError('Failed to fetch latest tasks. Please try again later.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        })();
+    }, []);
+
+    return {tasks, loading, error};  
+}
+
+export function useGetDoItNowTasks() {
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await tasksAPI.getAllDoItNowTasks();
+                setTasks(result);
+            } catch (err) {
+                setError('Failed to fetch latest tasks. Please try again later.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        })();
+    }, []);
+
+    return {tasks, loading, error};  
+}
+
+
 export function useGetOneTasks(taskId) {
     const [task, setTask] = useState({});
     
