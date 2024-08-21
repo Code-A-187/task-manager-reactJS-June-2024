@@ -13,8 +13,7 @@ export default function DeleteModal({ closeFn, open = false, taskId }) {
             closeFn();
         } catch (err) {
             console.log(err.message)
-        }
-        
+        } 
     }
 
 return (

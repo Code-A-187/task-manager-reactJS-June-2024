@@ -130,34 +130,38 @@ export function useGetOneTasks(taskId) {
     ]
 }
 
-export function useCreateTasks () {
+export function useCreateTasks() {
     const taskCreateHandler = useCallback(async (taskData) => {
-        
-        const dataWithTimestamp = {
-            ...taskData,
-            dueDate: new Date(taskData.dueDate).getTime(),
-        };
+        try {
+            const dataWithTimestamp = {
+              ...taskData,
+              dueDate: new Date(taskData.dueDate).getTime(),
+            };
+      
+            const response = await tasksAPI.create(dataWithTimestamp);
 
-        const response = await tasksAPI.create(dataWithTimestamp);
-        console.log(response)
+            return response;
+
+        } catch (error) {
             
+            console.error("Error in task creation:", error);
+            throw error;
+        }
     }, []);
-    
+
     return taskCreateHandler;
 }
 
 
 export function useUpdateTasks() {
-    const taskUpdateHandler = useCallback(async (taskId, taskData) => {
+    const taskUpdateHandler = useCallback( async (taskId, taskData) => {
       const dataWithTimestamp = {
         ...taskData,
         dueDate: new Date(taskData.dueDate).getTime(),
       };
 
 
-        const response = await tasksAPI.update(taskId, dataWithTimestamp);
-  
-        console.log(response)
+    tasksAPI.update(taskId, dataWithTimestamp);
     }, []);
   
     return taskUpdateHandler;
